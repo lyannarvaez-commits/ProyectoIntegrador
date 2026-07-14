@@ -1,0 +1,224 @@
+@model FrontendAdministrativo.DTOs.DashboardStatsDTO
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- ══ DASHBOARD INDEX ══════════════════════════════════════ -->
+
+<!-- Encabezado de página -->
+<div class="page-header">
+    <div>
+        <h1>📊 Dashboard</h1>
+        <p>Resumen general del Mundial de Fútbol 2026</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a asp-controller="Partidos" asp-action="Create" class="btn-admin btn-admin-primary">
+            <i class="bi bi-plus-lg"></i> Nuevo partido
+        </a>
+    </div>
+</div>
+
+<!-- ══ TARJETAS DE ESTADÍSTICAS ════════════════════════════ -->
+<div class="row g-3 mb-4">
+
+    <!-- Total Partidos -->
+    <div class="col-6 col-md-4 col-xl-2">
+        <div class="stat-card accent">
+            <div class="stat-icon">🏟️</div>
+            <div class="stat-info">
+                <div class="stat-value"
+                     id="cntTotalPartidos"
+                     data-counter="@Model.TotalPartidos">0</div>
+                <div class="stat-label">Total Partidos</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Finalizados -->
+    <div class="col-6 col-md-4 col-xl-2">
+        <div class="stat-card success">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+                <div class="stat-value"
+                     id="cntFinalizados"
+                     data-counter="@Model.PartidosFinalizados">0</div>
+                <div class="stat-label">Finalizados</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- En Curso -->
+    <div class="col-6 col-md-4 col-xl-2">
+        <div class="stat-card info">
+            <div class="stat-icon">🔴</div>
+            <div class="stat-info">
+                <div class="stat-value"
+                     id="cntEnCurso"
+                     data-counter="@Model.PartidosEnCurso">0</div>
+                <div class="stat-label">En Curso</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pendientes -->
+    <div class="col-6 col-md-4 col-xl-2">
+        <div class="stat-card warning">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-info">
+                <div class="stat-value"
+                     id="cntPendientes"
+                     data-counter="@Model.PartidosPendientes">0</div>
+                <div class="stat-label">Pendientes</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selecciones -->
+    <div class="col-6 col-md-4 col-xl-2">
+        <div class="stat-card gold">
+            <div class="stat-icon">🌎</div>
+            <div class="stat-info">
+                <div class="stat-value"
+                     id="cntSelecciones"
+                     data-counter="@Model.TotalSelecciones">0</div>
+                <div class="stat-label">Selecciones</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Usuarios -->
+    <div class="col-6 col-md-4 col-xl-2">
+        <div class="stat-card primary">
+            <div class="stat-icon">👥</div>
+            <div class="stat-info">
+                <div class="stat-value"
+                     id="cntUsuarios"
+                     data-counter="@Model.TotalUsuarios">0</div>
+                <div class="stat-label">Usuarios</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ══ SEGUNDA FILA: ACCESOS RÁPIDOS + ESTADO GENERAL ══════ -->
+<div class="row g-3">
+
+    <!-- Navegación rápida -->
+    <div class="col-lg-4">
+        <div class="admin-card h-100">
+            <div class="card-header-custom">
+                <h5>⚡ Accesos rápidos</h5>
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+                <a asp-controller="Partidos" asp-action="Create"
+                   class="btn-admin btn-admin-primary w-100 justify-content-start">
+                    <i class="bi bi-plus-circle"></i> Crear nuevo partido
+                </a>
+                <a asp-controller="Partidos" asp-action="Index"
+                   class="btn-admin btn-admin-secondary w-100 justify-content-start">
+                    <i class="bi bi-list-ul"></i> Ver todos los partidos
+                </a>
+                <a asp-controller="Usuarios" asp-action="Index"
+                   class="btn-admin btn-admin-secondary w-100 justify-content-start">
+                    <i class="bi bi-people"></i> Gestionar usuarios
+                </a>
+                <a asp-controller="Reportes" asp-action="Index"
+                   class="btn-admin btn-admin-secondary w-100 justify-content-start">
+                    <i class="bi bi-bar-chart"></i> Ver reportes
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estado del torneo -->
+    <div class="col-lg-4">
+        <div class="admin-card h-100">
+            <div class="card-header-custom">
+                <h5>🏆 Estado del torneo</h5>
+            </div>
+
+            @{
+                int total = Model.TotalPartidos > 0 ? Model.TotalPartidos : 1;
+                int pctFinalizado = (int)((double)Model.PartidosFinalizados / total * 100);
+            }
+
+            <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span style="font-size:12px;color:var(--text-secondary);">Progreso del torneo</span>
+                    <span style="font-size:12px;font-weight:700;color:var(--color-accent);">@pctFinalizado%</span>
+                </div>
+                <div style="height:8px;background:var(--bg-body);border-radius:4px;overflow:hidden;">
+                    <div style="height:100%;width:@pctFinalizado%;background:linear-gradient(90deg,var(--color-accent),#ff6b80);border-radius:4px;transition:width 1s ease;"></div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column gap-2 mt-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="font-size:13px;color:var(--text-secondary);">✅ Finalizados</span>
+                    <span class="badge-estado badge-finalizado">@Model.PartidosFinalizados</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="font-size:13px;color:var(--text-secondary);">🔴 En Curso</span>
+                    <span class="badge-estado badge-en-curso">@Model.PartidosEnCurso</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="font-size:13px;color:var(--text-secondary);">⏳ Pendientes</span>
+                    <span class="badge-estado badge-pendiente">@Model.PartidosPendientes</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span style="font-size:13px;color:var(--text-secondary);">🌎 Grupos</span>
+                    <span style="font-size:13px;font-weight:700;color:var(--text-primary);">@Model.TotalGrupos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Usuarios del sistema -->
+    <div class="col-lg-4">
+        <div class="admin-card h-100">
+            <div class="card-header-custom">
+                <h5>👥 Usuarios del sistema</h5>
+                <a asp-controller="Usuarios" asp-action="Index" style="font-size:12px;color:var(--color-accent);">
+                    Ver todos →
+                </a>
+            </div>
+
+            @{
+                int pctActivos = Model.TotalUsuarios > 0
+                    ? (int)((double)Model.UsuariosActivos / Model.TotalUsuarios * 100)
+                    : 0;
+            }
+
+            <div class="text-center mb-3">
+                <div style="font-size:48px;font-weight:900;color:var(--text-primary);line-height:1;">
+                    @Model.TotalUsuarios
+                </div>
+                <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;">
+                    usuarios registrados
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <div class="d-flex justify-content-between mb-1">
+                    <span style="font-size:12px;color:var(--text-secondary);">Usuarios activos</span>
+                    <span style="font-size:12px;font-weight:700;color:var(--color-success);">@pctActivos%</span>
+                </div>
+                <div style="height:8px;background:var(--bg-body);border-radius:4px;overflow:hidden;">
+                    <div style="height:100%;width:@pctActivos%;background:var(--color-success);border-radius:4px;"></div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <span style="font-size:13px;color:var(--text-secondary);">✅ Activos</span>
+                <span class="badge-estado badge-activo">@Model.UsuariosActivos</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+                <span style="font-size:13px;color:var(--text-secondary);">❌ Inactivos</span>
+                <span class="badge-estado badge-inactivo">@(Model.TotalUsuarios - Model.UsuariosActivos)</span>
+            </div>
+        </div>
+    </div>
+
+</div>

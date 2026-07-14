@@ -1,0 +1,137 @@
+@model FrontendAdministrativo.DTOs.LoginDTO
+@{
+    Layout = null; // Página sin layout (diseño propio)
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión — UTN GolMundial 2026</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+</head>
+<body>
+
+<div class="login-wrapper">
+    <div class="login-card animate-fade-in">
+
+        <!-- Logo -->
+        <div class="login-logo">
+            <div class="logo-icon">⚽</div>
+            <h1>UTN GolMundial 2026</h1>
+            <p>Panel Administrativo</p>
+        </div>
+
+        <!-- Validación summary -->
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert-admin alert-admin-error mb-3">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <div asp-validation-summary="All" class="mb-0"></div>
+            </div>
+        }
+
+        <!-- Formulario de login -->
+        <form asp-controller="Auth" asp-action="Login" method="post">
+            @Html.AntiForgeryToken()
+
+            <!-- Email -->
+            <div class="form-group-admin mb-3">
+                <label asp-for="Email">
+                    <i class="bi bi-envelope me-1"></i>Email
+                </label>
+                <input asp-for="Email"
+                       type="email"
+                       class="form-control-admin"
+                       placeholder="admin@utn.edu.ar"
+                       autocomplete="email"
+                       autofocus />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="form-group-admin mb-3">
+                <label asp-for="Password">
+                    <i class="bi bi-lock me-1"></i>Contraseña
+                </label>
+                <div class="position-relative">
+                    <input asp-for="Password"
+                           type="password"
+                           id="passwordInput"
+                           class="form-control-admin pe-5"
+                           placeholder="••••••••"
+                           autocomplete="current-password" />
+                    <button type="button"
+                            class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3"
+                            onclick="togglePassword()"
+                            tabindex="-1"
+                            style="color: var(--text-muted);">
+                        <i class="bi bi-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <!-- Recordarme -->
+            <div class="d-flex align-items-center gap-2 mb-4">
+                <input asp-for="Recordarme" type="checkbox" id="recordarme"
+                       style="width:16px;height:16px;accent-color:var(--color-accent);" />
+                <label for="recordarme" style="font-size:13px; color:var(--text-secondary); margin:0; cursor:pointer;">
+                    Recordarme por 7 días
+                </label>
+            </div>
+
+            <!-- Botón ingresar -->
+            <button type="submit" class="btn-admin btn-admin-primary w-100 justify-content-center py-2" style="font-size:14px;">
+                <i class="bi bi-box-arrow-in-right"></i>
+                Ingresar al panel
+            </button>
+        </form>
+
+        <!-- Info de credenciales de ejemplo -->
+        <div class="mt-4 p-3" style="background: rgba(233,69,96,0.08); border-radius: 8px; border: 1px solid rgba(233,69,96,0.2);">
+            <p class="mb-1" style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">
+                Credenciales de ejemplo
+            </p>
+            <p class="mb-0" style="font-size: 12px; color: var(--text-secondary);">
+                📧 admin@@utn.edu.ar &nbsp;|&nbsp; 🔑 Admin123!
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Mostrar/ocultar contraseña
+    function togglePassword() {
+        const input = document.getElementById("passwordInput");
+        const icon  = document.getElementById("eyeIcon");
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.replace("bi-eye", "bi-eye-slash");
+        } else {
+            input.type = "password";
+            icon.classList.replace("bi-eye-slash", "bi-eye");
+        }
+    }
+</script>
+
+@await Html.PartialAsync("_ValidationScriptsPartial")
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+@model FrontendAdministrativo.DTOs.UsuarioDTO
+@{
+    ViewData["Title"] = $"Editar usuario — {Model.Nombre}";
+}
+
+<!-- ══ USUARIOS EDIT ════════════════════════════════════════ -->
+
+<div class="page-header">
+    <div>
+        <h1>✏️ Editar Usuario</h1>
+        <p>@Model.Email</p>
+    </div>
+    <a asp-action="Index" class="btn-admin btn-admin-secondary">
+        <i class="bi bi-arrow-left"></i> Volver
+    </a>
+</div>
+
+<div class="admin-card" style="max-width: 560px;">
+
+    <!-- Avatar del usuario -->
+    <div class="d-flex align-items-center gap-3 mb-4 p-3"
+         style="background:var(--bg-body);border-radius:var(--radius-sm);border:1px solid var(--border-color);">
+        <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--color-accent),var(--color-accent2));display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;">
+            @Model.Nombre.Substring(0, 1).ToUpper()
+        </div>
+        <div>
+            <div style="font-size:15px;font-weight:700;">@Model.Nombre</div>
+            <div style="font-size:12px;color:var(--text-muted);">@Model.Email</div>
+            <div style="font-size:12px;color:var(--color-gold);margin-top:2px;">
+                🪙 Saldo: @Model.SaldoUTNGolCoin.ToString("N2") UTNGolCoin
+            </div>
+        </div>
+    </div>
+
+    <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+        @Html.AntiForgeryToken()
+
+        <!-- Validación summary -->
+        <div asp-validation-summary="ModelOnly" class="alert-admin alert-admin-error mb-3"
+             style="display:@(ViewData.ModelState.ErrorCount > 0 ? "flex" : "none")"></div>
+
+        <!-- Campos hidden (no editables desde aquí) -->
+        <input asp-for="Id"              type="hidden" />
+        <input asp-for="Nombre"          type="hidden" />
+        <input asp-for="Email"           type="hidden" />
+        <input asp-for="FechaRegistro"   type="hidden" />
+        <input asp-for="SaldoUTNGolCoin" type="hidden" />
+
+        <!-- ── Rol ────────────────────────────────────────── -->
+        <div class="form-group-admin mb-3">
+            <label asp-for="Rol">👤 Rol del usuario</label>
+            <select asp-for="Rol"
+                    asp-items="ViewBag.Roles"
+                    class="form-control-admin">
+            </select>
+            <span asp-validation-for="Rol" class="text-danger small"></span>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">
+                ⚠️ El rol <strong>Administrador</strong> otorga acceso total al panel.
+            </div>
+        </div>
+
+        <!-- ── Estado Activo ──────────────────────────────── -->
+        <div class="mb-4">
+            <label class="form-group-admin" style="margin-bottom:10px;">📋 Estado de la cuenta</label>
+            <div class="d-flex gap-4">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;">
+                    @if (Model.Activo)
+                    {
+                        <input type="radio" name="Activo" value="True" checked
+                               style="accent-color:var(--color-success);width:16px;height:16px;" />
+                    }
+                    else
+                    {
+                        <input type="radio" name="Activo" value="True"
+                               style="accent-color:var(--color-success);width:16px;height:16px;" />
+                    }
+                    <span class="badge-estado badge-activo">✅ Activo</span>
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;">
+                    @if (!Model.Activo)
+                    {
+                        <input type="radio" name="Activo" value="False" checked
+                               style="accent-color:var(--color-danger);width:16px;height:16px;" />
+                    }
+                    else
+                    {
+                        <input type="radio" name="Activo" value="False"
+                               style="accent-color:var(--color-danger);width:16px;height:16px;" />
+                    }
+                    <span class="badge-estado badge-inactivo">❌ Inactivo</span>
+                </label>
+            </div>
+            <span asp-validation-for="Activo" class="text-danger small"></span>
+        </div>
+
+        <!-- ── Botones ─────────────────────────────────────── -->
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn-admin btn-admin-primary">
+                <i class="bi bi-check-lg"></i> Guardar cambios
+            </button>
+            <a asp-action="Index" class="btn-admin btn-admin-secondary">
+                <i class="bi bi-x"></i> Cancelar
+            </a>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

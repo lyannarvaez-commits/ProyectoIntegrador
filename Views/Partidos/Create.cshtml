@@ -1,0 +1,120 @@
+@model FrontendAdministrativo.DTOs.PartidoDTO
+@{
+    ViewData["Title"] = "Nuevo Partido";
+}
+
+<!-- ══ PARTIDOS CREATE ══════════════════════════════════════ -->
+
+<div class="page-header">
+    <div>
+        <h1>➕ Nuevo Partido</h1>
+        <p>Complete los datos para registrar un nuevo partido.</p>
+    </div>
+    <a asp-action="Index" class="btn-admin btn-admin-secondary">
+        <i class="bi bi-arrow-left"></i> Volver
+    </a>
+</div>
+
+<div class="admin-card" style="max-width: 780px;">
+
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <!-- Validación summary -->
+        <div asp-validation-summary="ModelOnly" class="alert-admin alert-admin-error mb-3"
+             style="display:@(ViewData.ModelState.ErrorCount > 0 ? "flex" : "none")"></div>
+
+        <!-- ── Selecciones ─────────────────────────────────── -->
+        <div class="row g-3 mb-3">
+            <div class="col-md-5">
+                <div class="form-group-admin">
+                    <label asp-for="SeleccionLocal">🏳️ Selección Local</label>
+                    <select asp-for="SeleccionLocal"
+                            asp-items="ViewBag.Selecciones"
+                            class="form-control-admin">
+                        <option value="">-- Seleccione --</option>
+                    </select>
+                    <span asp-validation-for="SeleccionLocal" class="text-danger small"></span>
+                </div>
+            </div>
+            <div class="col-md-2 d-flex align-items-end justify-content-center pb-1">
+                <div style="font-size:22px;font-weight:900;color:var(--color-accent);">VS</div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group-admin">
+                    <label asp-for="SeleccionVisitante">🏳️ Selección Visitante</label>
+                    <select asp-for="SeleccionVisitante"
+                            asp-items="ViewBag.SeleccionesVisitante"
+                            class="form-control-admin">
+                        <option value="">-- Seleccione --</option>
+                    </select>
+                    <span asp-validation-for="SeleccionVisitante" class="text-danger small"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Fase y Fecha ────────────────────────────────── -->
+        <div class="row g-3 mb-3">
+            <div class="col-md-6">
+                <div class="form-group-admin">
+                    <label asp-for="Fase">🏆 Fase</label>
+                    <select asp-for="Fase"
+                            asp-items="ViewBag.Fases"
+                            class="form-control-admin">
+                        <option value="">-- Seleccione --</option>
+                    </select>
+                    <span asp-validation-for="Fase" class="text-danger small"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group-admin">
+                    <label asp-for="FechaHora">📅 Fecha y Hora (dd/MM/yyyy HH:mm)</label>
+                    <input asp-for="FechaHora"
+                           type="datetime-local"
+                           class="form-control-admin" />
+                    <span asp-validation-for="FechaHora" class="text-danger small"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Sede y Estado ───────────────────────────────── -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-8">
+                <div class="form-group-admin">
+                    <label asp-for="Sede">🏟️ Sede</label>
+                    <select asp-for="Sede"
+                            asp-items="ViewBag.Sedes"
+                            class="form-control-admin">
+                        <option value="">-- Seleccione --</option>
+                    </select>
+                    <span asp-validation-for="Sede" class="text-danger small"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group-admin">
+                    <label asp-for="Estado">📋 Estado</label>
+                    <select asp-for="Estado"
+                            asp-items="ViewBag.Estados"
+                            class="form-control-admin">
+                    </select>
+                    <span asp-validation-for="Estado" class="text-danger small"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Botones ─────────────────────────────────────── -->
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn-admin btn-admin-primary">
+                <i class="bi bi-check-lg"></i> Crear partido
+            </button>
+            <a asp-action="Index" class="btn-admin btn-admin-secondary">
+                <i class="bi bi-x"></i> Cancelar
+            </a>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

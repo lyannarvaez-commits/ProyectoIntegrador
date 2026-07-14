@@ -1,0 +1,209 @@
+@{
+    ViewData["Title"] = "Reportes";
+
+    // Datos recibidos del controlador via ViewBag
+    int totalPartidos    = ViewBag.TotalPartidos ?? 0;
+    int totFinalizados   = ViewBag.TotalFinalizados ?? 0;
+    int totPendientes    = ViewBag.TotalPendientes ?? 0;
+    int totEnCurso       = ViewBag.TotalEnCurso ?? 0;
+    int totalUsuarios    = ViewBag.TotalUsuarios ?? 0;
+    int usuariosActivos  = ViewBag.UsuariosActivos ?? 0;
+    int totalSelecciones = ViewBag.TotalSelecciones ?? 0;
+    int totalGrupos      = ViewBag.TotalGrupos ?? 0;
+}
+
+<!-- ══ REPORTES INDEX ═══════════════════════════════════════ -->
+
+<div class="page-header">
+    <div>
+        <h1>📈 Reportes</h1>
+        <p>Análisis estadístico del Mundial de Fútbol 2026</p>
+    </div>
+    <span style="font-size:12px;color:var(--text-muted);">
+        <i class="bi bi-clock me-1"></i>Actualizado: @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
+    </span>
+</div>
+
+<!-- ══ FILA 1: KPIs ════════════════════════════════════════ -->
+<div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+        <div class="stat-card accent">
+            <div class="stat-icon">🏟️</div>
+            <div class="stat-info">
+                <div class="stat-value">@totalPartidos</div>
+                <div class="stat-label">Partidos totales</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="stat-card success">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+                <div class="stat-value">@totFinalizados</div>
+                <div class="stat-label">Finalizados</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="stat-card gold">
+            <div class="stat-icon">🌎</div>
+            <div class="stat-info">
+                <div class="stat-value">@totalSelecciones</div>
+                <div class="stat-label">Selecciones</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-md-3">
+        <div class="stat-card primary">
+            <div class="stat-icon">👥</div>
+            <div class="stat-info">
+                <div class="stat-value">@totalUsuarios</div>
+                <div class="stat-label">Usuarios</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ FILA 2: Partidos por fase + Goleadores ═══════════ -->
+<div class="row g-3">
+
+    <!-- Partidos por fase -->
+    <div class="col-lg-7">
+        <div class="admin-card h-100">
+            <div class="card-header-custom">
+                <h5>🏆 Partidos por fase</h5>
+            </div>
+
+            @if (ViewBag.PartidosPorFase != null)
+            {
+                var porFase = (dynamic)ViewBag.PartidosPorFase;
+                @foreach (var item in porFase)
+                {
+                    int pct = totalPartidos > 0 ? (int)((double)item.Total / totalPartidos * 100) : 0;
+                    int pctFin = item.Total > 0 ? (int)((double)item.Finalizados / item.Total * 100) : 0;
+                    <div class="reporte-bar mb-3">
+                        <div class="reporte-bar-label">
+                            @item.Fase
+                        </div>
+                        <div style="flex:1;">
+                            <div class="reporte-bar-track">
+                                <div class="reporte-bar-fill" style="width:@pct%"></div>
+                            </div>
+                            <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">
+                                @item.Finalizados / @item.Total finalizados (@pctFin%)
+                            </div>
+                        </div>
+                        <div class="reporte-bar-value">@item.Total</div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div style="text-align:center;color:var(--text-muted);padding:30px 0;">
+                    Sin datos disponibles
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Estado de partidos (dona visual) -->
+    <div class="col-lg-5">
+        <div class="admin-card h-100">
+            <div class="card-header-custom">
+                <h5>📊 Estado de partidos</h5>
+            </div>
+
+            @{
+                int total = totalPartidos > 0 ? totalPartidos : 1;
+                int pctFinalizado = (int)((double)totFinalizados / total * 100);
+                int pctEnCurso    = (int)((double)totEnCurso    / total * 100);
+                int pctPendiente  = 100 - pctFinalizado - pctEnCurso;
+                if (pctPendiente < 0) pctPendiente = 0;
+            }
+
+            <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span style="font-size:13px;color:#28a745;">✅ Finalizados</span>
+                    <span style="font-size:13px;font-weight:700;">@totFinalizados (@pctFinalizado%)</span>
+                </div>
+                <div style="height:10px;background:var(--bg-body);border-radius:5px;overflow:hidden;">
+                    <div style="height:100%;width:@pctFinalizado%;background:var(--color-success);border-radius:5px;"></div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span style="font-size:13px;color:#17a2b8;">🔴 En curso</span>
+                    <span style="font-size:13px;font-weight:700;">@totEnCurso (@pctEnCurso%)</span>
+                </div>
+                <div style="height:10px;background:var(--bg-body);border-radius:5px;overflow:hidden;">
+                    <div style="height:100%;width:@pctEnCurso%;background:var(--color-info);border-radius:5px;"></div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span style="font-size:13px;color:#ffc107;">⏳ Pendientes</span>
+                    <span style="font-size:13px;font-weight:700;">@totPendientes (@pctPendiente%)</span>
+                </div>
+                <div style="height:10px;background:var(--bg-body);border-radius:5px;overflow:hidden;">
+                    <div style="height:100%;width:@pctPendiente%;background:var(--color-warning);border-radius:5px;"></div>
+                </div>
+            </div>
+
+            <hr style="border-color:var(--border-color);" />
+
+            <!-- Usuarios -->
+            <div class="card-header-custom mt-3">
+                <h5>👥 Usuarios</h5>
+            </div>
+            @{
+                int pctActivos = totalUsuarios > 0 ? (int)((double)usuariosActivos / totalUsuarios * 100) : 0;
+            }
+            <div class="mb-2">
+                <div class="d-flex justify-content-between mb-1">
+                    <span style="font-size:13px;color:#28a745;">✅ Activos</span>
+                    <span style="font-size:13px;font-weight:700;">@usuariosActivos (@pctActivos%)</span>
+                </div>
+                <div style="height:10px;background:var(--bg-body);border-radius:5px;overflow:hidden;">
+                    <div style="height:100%;width:@pctActivos%;background:var(--color-success);border-radius:5px;"></div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="d-flex justify-content-between mb-1">
+                    <span style="font-size:13px;color:#dc3545;">❌ Inactivos</span>
+                    <span style="font-size:13px;font-weight:700;">@(totalUsuarios - usuariosActivos) (@(100 - pctActivos)%)</span>
+                </div>
+                <div style="height:10px;background:var(--bg-body);border-radius:5px;overflow:hidden;">
+                    <div style="height:100%;width:@(100 - pctActivos)%;background:var(--color-danger);border-radius:5px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ TOP GOLEADORES ══════════════════════════════════════ -->
+@if (ViewBag.TopGoleadores != null)
+{
+    var goleadores = (dynamic)ViewBag.TopGoleadores;
+    int maxGoles = 1;
+    foreach (var g in goleadores) { if (g.TotalGoles > maxGoles) maxGoles = g.TotalGoles; }
+
+    <div class="admin-card mt-3">
+        <div class="card-header-custom">
+            <h5>⚽ Top 10 — Selecciones con más goles</h5>
+        </div>
+
+        @foreach (var g in goleadores)
+        {
+            int pctG = (int)((double)g.TotalGoles / maxGoles * 100);
+            <div class="reporte-bar">
+                <div class="reporte-bar-label" style="min-width:160px;">@g.Seleccion</div>
+                <div class="reporte-bar-track">
+                    <div class="reporte-bar-fill" style="width:@pctG%"></div>
+                </div>
+                <div class="reporte-bar-value">@g.TotalGoles ⚽</div>
+            </div>
+        }
+    </div>
+}

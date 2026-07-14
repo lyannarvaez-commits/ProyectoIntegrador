@@ -1,0 +1,123 @@
+@model FrontendAdministrativo.DTOs.ResultadoDTO
+@{
+    ViewData["Title"] = "Registrar Resultado";
+    var partido = ViewBag.Partido as FrontendAdministrativo.DTOs.PartidoDTO;
+}
+
+<!-- ══ REGISTRAR RESULTADO ══════════════════════════════════ -->
+
+<div class="page-header">
+    <div>
+        <h1>🏆 Registrar Resultado</h1>
+        <p>Partido #@partido?.Id — @partido?.Fase</p>
+    </div>
+    <a asp-action="Index" class="btn-admin btn-admin-secondary">
+        <i class="bi bi-arrow-left"></i> Volver
+    </a>
+</div>
+
+<!-- Banner de equipos -->
+@if (partido != null)
+{
+    <div class="vs-banner mb-4">
+        <div class="vs-team">
+            <div class="vs-team-name">@partido.SeleccionLocal</div>
+            <div class="vs-team-label">Local</div>
+        </div>
+        <div class="vs-separator">VS</div>
+        <div class="vs-team">
+            <div class="vs-team-name">@partido.SeleccionVisitante</div>
+            <div class="vs-team-label">Visitante</div>
+        </div>
+    </div>
+
+    <!-- Info del partido -->
+    <div class="d-flex gap-3 mb-4 flex-wrap">
+        <div style="font-size:12px;color:var(--text-muted);">
+            <i class="bi bi-calendar3 me-1"></i>@partido.FechaFormateada
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);">
+            <i class="bi bi-geo-alt me-1"></i>@partido.Sede
+        </div>
+    </div>
+}
+
+<!-- Formulario de resultado -->
+<div class="admin-card" style="max-width: 520px;">
+
+    <form asp-action="RegistrarResultado" asp-route-id="@Model.PartidoId" method="post">
+        @Html.AntiForgeryToken()
+        <input asp-for="PartidoId" type="hidden" />
+
+        <!-- Validación summary -->
+        <div asp-validation-summary="ModelOnly" class="alert-admin alert-admin-error mb-3"
+             style="display:@(ViewData.ModelState.ErrorCount > 0 ? "flex" : "none")"></div>
+
+        <!-- Inputs de goles grandes -->
+        <div class="d-flex align-items-center justify-content-center gap-4 mb-4">
+
+            <!-- Goles local -->
+            <div class="text-center">
+                <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">
+                    @partido?.SeleccionLocal
+                </div>
+                <input asp-for="GolesLocal"
+                       type="number"
+                       id="golesLocalInput"
+                       class="score-input-large"
+                       min="0" max="99"
+                       data-tipo="goles" />
+                <div>
+                    <span asp-validation-for="GolesLocal" class="text-danger small"></span>
+                </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="text-center">
+                <div style="font-size:14px;color:var(--text-muted);margin-bottom:8px;">&nbsp;</div>
+                <div style="font-size:40px;font-weight:900;color:var(--text-muted);">-</div>
+                <div style="font-size:20px;font-weight:900;color:var(--color-accent);margin-top:8px;"
+                     id="resultadoPreview">
+                    @Model.GolesLocal - @Model.GolesVisitante
+                </div>
+            </div>
+
+            <!-- Goles visitante -->
+            <div class="text-center">
+                <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">
+                    @partido?.SeleccionVisitante
+                </div>
+                <input asp-for="GolesVisitante"
+                       type="number"
+                       id="golesVisitanteInput"
+                       class="score-input-large"
+                       min="0" max="99"
+                       data-tipo="goles" />
+                <div>
+                    <span asp-validation-for="GolesVisitante" class="text-danger small"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aviso -->
+        <div class="alert-admin alert-admin-warning mb-4">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            Al registrar el resultado, el estado del partido cambiará a <strong>Finalizado</strong>.
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn-admin btn-admin-primary">
+                <i class="bi bi-trophy-fill"></i> Confirmar resultado
+            </button>
+            <a asp-action="Index" class="btn-admin btn-admin-secondary">
+                <i class="bi bi-x"></i> Cancelar
+            </a>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Panel Administrativo - UTN GolMundial 2026" />
+    <title>@ViewData["Title"] — UTN GolMundial 2026 Admin</title>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Admin CSS personalizado -->
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+@* ── Verificar si el usuario está autenticado ── *@
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="admin-wrapper">
+
+        <!-- ══ SIDEBAR ══════════════════════════════════════════ -->
+        <aside class="admin-sidebar" id="adminSidebar">
+
+            <!-- Logo -->
+            <div class="sidebar-brand">
+                <div class="brand-icon">⚽</div>
+                <div class="brand-text">
+                    <span class="brand-name">UTN GolMundial</span>
+                    <span class="brand-sub">Admin 2026</span>
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <nav class="sidebar-nav">
+                <div class="sidebar-section-title">Principal</div>
+
+                <a asp-controller="Dashboard" asp-action="Index"
+                   class="sidebar-item" title="Dashboard">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+
+                <div class="sidebar-section-title mt-2">Gestión</div>
+
+                <a asp-controller="Partidos" asp-action="Index"
+                   class="sidebar-item" title="Partidos">
+                    <span class="nav-icon">🏟️</span>
+                    Partidos
+                </a>
+
+                <a asp-controller="Usuarios" asp-action="Index"
+                   class="sidebar-item" title="Usuarios">
+                    <span class="nav-icon">👥</span>
+                    Usuarios
+                </a>
+
+                <div class="sidebar-section-title mt-2">Análisis</div>
+
+                <a asp-controller="Reportes" asp-action="Index"
+                   class="sidebar-item" title="Reportes">
+                    <span class="nav-icon">📈</span>
+                    Reportes
+                </a>
+            </nav>
+
+            <!-- Footer del sidebar: usuario + logout -->
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="user-avatar">
+                        @(Context.Session.GetString("AdminNombre")?.Substring(0, 1).ToUpper() ?? "A")
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">@(Context.Session.GetString("AdminNombre") ?? "Administrador")</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                </div>
+
+                <form asp-controller="Auth" asp-action="Logout" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn-admin btn-admin-secondary w-100 justify-content-center"
+                            onclick="confirmarLogout(event)">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Cerrar sesión
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- ══ CONTENIDO PRINCIPAL ══════════════════════════════ -->
+        <div class="admin-content">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+                <div class="d-flex align-items-center gap-3">
+                    <!-- Toggle sidebar (mobile) -->
+                    <button class="btn btn-link d-lg-none p-0" onclick="toggleSidebar()" style="color: var(--text-primary);">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <div class="topbar-title">
+                        ⚽
+                        <span class="breadcrumb-sep">/</span>
+                        @(ViewData["Title"]?.ToString() ?? "Panel")
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <span class="topbar-time" id="topbar-clock">
+                        <i class="bi bi-clock me-1"></i>Cargando...
+                    </span>
+                </div>
+            </header>
+
+            <!-- Mensajes TempData (éxito / error) -->
+            <div class="px-4 pt-3">
+                @if (TempData["Exito"] != null)
+                {
+                    <div class="alert-admin alert-admin-success animate-fade-in" data-auto-hide>
+                        <i class="bi bi-check-circle-fill"></i>
+                        @TempData["Exito"]
+                    </div>
+                }
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert-admin alert-admin-error animate-fade-in" data-auto-hide>
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        @TempData["Error"]
+                    </div>
+                }
+            </div>
+
+            <!-- Cuerpo de página -->
+            <main class="page-body animate-fade-in">
+                @RenderBody()
+            </main>
+
+            <!-- Footer -->
+            <footer class="px-4 py-3 text-center" style="font-size:11px; color: var(--text-muted); border-top: 1px solid var(--border-color);">
+                UTN GolMundial 2026 &mdash; Panel Administrativo &copy; @DateTime.Now.Year
+            </footer>
+        </div>
+    </div>
+}
+else
+{
+    <!-- Sin autenticación: mostrar solo el cuerpo (Login) -->
+    @RenderBody()
+}
+
+<!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Admin JS personalizado -->
+<script src="~/js/admin.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

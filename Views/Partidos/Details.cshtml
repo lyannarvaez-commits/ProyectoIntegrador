@@ -1,0 +1,112 @@
+@model FrontendAdministrativo.DTOs.PartidoDTO
+@{
+    ViewData["Title"] = $"Detalle — {Model.SeleccionLocal} vs {Model.SeleccionVisitante}";
+}
+
+<!-- ══ PARTIDOS DETAILS ═════════════════════════════════════ -->
+
+<div class="page-header">
+    <div>
+        <h1>🔍 Detalle del Partido</h1>
+        <p>#@Model.Id — @Model.Fase</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-admin btn-admin-primary">
+            <i class="bi bi-pencil"></i> Editar
+        </a>
+        @if (Model.Estado != "Finalizado")
+        {
+            <a asp-action="RegistrarResultado" asp-route-id="@Model.Id"
+               class="btn-admin btn-admin-secondary">
+                <i class="bi bi-trophy"></i> Resultado
+            </a>
+        }
+        <a asp-action="Index" class="btn-admin btn-admin-secondary">
+            <i class="bi bi-arrow-left"></i> Volver
+        </a>
+    </div>
+</div>
+
+<!-- Banner equipos -->
+<div class="vs-banner mb-4">
+    <div class="vs-team">
+        <div class="vs-team-name">@Model.SeleccionLocal</div>
+        <div class="vs-team-label">Local</div>
+        @if (Model.GolesLocal.HasValue)
+        {
+            <div style="font-size:48px;font-weight:900;color:var(--color-accent);line-height:1;margin-top:8px;">
+                @Model.GolesLocal
+            </div>
+        }
+    </div>
+    <div class="vs-separator">
+        @if (Model.Estado == "Finalizado")
+        {
+            <span>@Model.GolesLocal - @Model.GolesVisitante</span>
+        }
+        else
+        {
+            <span>VS</span>
+        }
+    </div>
+    <div class="vs-team">
+        <div class="vs-team-name">@Model.SeleccionVisitante</div>
+        <div class="vs-team-label">Visitante</div>
+        @if (Model.GolesVisitante.HasValue)
+        {
+            <div style="font-size:48px;font-weight:900;color:var(--color-accent);line-height:1;margin-top:8px;">
+                @Model.GolesVisitante
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Detalles del partido -->
+<div class="admin-card" style="max-width: 640px;">
+    <div class="card-header-custom">
+        <h5>📋 Información del partido</h5>
+        @{
+            string badgeClass = Model.Estado switch {
+                "Finalizado" => "badge-estado badge-finalizado",
+                "EnCurso"    => "badge-estado badge-en-curso",
+                _            => "badge-estado badge-pendiente"
+            };
+        }
+        <span class="@badgeClass">@Model.Estado</span>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">
+                Fecha y Hora
+            </div>
+            <div style="font-weight:600;">📅 @Model.FechaFormateada</div>
+        </div>
+        <div class="col-sm-6">
+            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">
+                Fase
+            </div>
+            <div style="font-weight:600;">🏆 @Model.Fase</div>
+        </div>
+        <div class="col-12">
+            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">
+                Sede
+            </div>
+            <div style="font-weight:600;">🏟️ @Model.Sede</div>
+        </div>
+        <div class="col-sm-6">
+            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">
+                Resultado
+            </div>
+            <div style="font-size:22px;font-weight:900;color:var(--color-accent);">
+                @Model.ResultadoFormateado
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">
+                ID del partido
+            </div>
+            <div style="font-weight:600;color:var(--text-muted);">#@Model.Id</div>
+        </div>
+    </div>
+</div>
