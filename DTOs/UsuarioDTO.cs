@@ -13,19 +13,24 @@ namespace FrontendAdministrativo.DTOs
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "El nombre es obligatorio.")]
         [Display(Name = "Nombre")]
-        [StringLength(100, ErrorMessage = "El nombre no puede superar los 100 caracteres.")]
         public string Nombre { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El email es obligatorio.")]
-        [EmailAddress(ErrorMessage = "El formato del email no es válido.")]
+        [Display(Name = "Usuario")]
+        public string Username { get; set; } = string.Empty;
+
         [Display(Name = "Email")]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El rol es obligatorio.")]
-        [Display(Name = "Rol")]
-        public string Rol { get; set; } = "Usuario"; // Administrador, Usuario
+        public int RolId { get; set; }
+
+        // 🔥 OBJETO ROL ANIDADO (viene del backend)
+        public RolDTO? Rol { get; set; }
+
+        // 🔥 PROPIEDAD CALCULADA PARA MOSTRAR EL NOMBRE DEL ROL
+        public string RolNombre => Rol?.Nombre ?? "Sin rol";
+
+        public string Password { get; set; } = string.Empty;
 
         [Display(Name = "Fecha de Registro")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
@@ -39,13 +44,20 @@ namespace FrontendAdministrativo.DTOs
         public decimal SaldoUTNGolCoin { get; set; }
 
         // ── Propiedades calculadas ─────────────────────────────
-        /// <summary>Badge CSS de estado activo/inactivo</summary>
         public string BadgeEstado => Activo ? "badge bg-success" : "badge bg-danger";
-
-        /// <summary>Texto de estado</summary>
         public string TextoEstado => Activo ? "Activo" : "Inactivo";
+        public string BadgeRol => (RolNombre == "ADMINISTRADOR" || RolNombre == "Administrador")
+            ? "badge bg-warning text-dark"
+            : "badge bg-info";
+    }
 
-        /// <summary>Badge CSS del rol</summary>
-        public string BadgeRol => Rol == "Administrador" ? "badge bg-warning text-dark" : "badge bg-info";
+    /// <summary>
+    /// DTO para el objeto Rol anidado que devuelve el backend
+    /// </summary>
+    public class RolDTO
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+        public string? Descripcion { get; set; }
     }
 }

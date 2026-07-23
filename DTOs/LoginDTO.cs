@@ -11,10 +11,9 @@ namespace FrontendAdministrativo.DTOs
     /// </summary>
     public class LoginDTO
     {
-        [Required(ErrorMessage = "El email es obligatorio.")]
-        [EmailAddress(ErrorMessage = "El formato del email no es válido.")]
-        [Display(Name = "Email")]
-        public string Email { get; set; } = string.Empty;
+        [Required(ErrorMessage = "El usuario es obligatorio.")]
+        [Display(Name = "Usuario")]
+        public string Username { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "La contraseña es obligatoria.")]
         [DataType(DataType.Password)]

@@ -2,14 +2,15 @@
     ViewData["Title"] = "Reportes";
 
     // Datos recibidos del controlador via ViewBag
-    int totalPartidos    = ViewBag.TotalPartidos ?? 0;
-    int totFinalizados   = ViewBag.TotalFinalizados ?? 0;
-    int totPendientes    = ViewBag.TotalPendientes ?? 0;
-    int totEnCurso       = ViewBag.TotalEnCurso ?? 0;
-    int totalUsuarios    = ViewBag.TotalUsuarios ?? 0;
-    int usuariosActivos  = ViewBag.UsuariosActivos ?? 0;
+    int totalPartidos = ViewBag.TotalPartidos ?? 0;
+    int totFinalizados = ViewBag.Finalizados ?? 0;
+    int totPendientes = ViewBag.Programados ?? 0;
+    int totEnCurso = ViewBag.EnCurso ?? 0;
+    int totalUsuarios = ViewBag.TotalUsuarios ?? 0;
+    int usuariosActivos = ViewBag.UsuariosActivos ?? 0;
     int totalSelecciones = ViewBag.TotalSelecciones ?? 0;
-    int totalGrupos      = ViewBag.TotalGrupos ?? 0;
+    int totalGrupos = ViewBag.TotalGrupos ?? 0;
+    var fases = ViewBag.Fases as List<FrontendAdministrativo.DTOs.FaseReporteDTO> ?? new List<FrontendAdministrativo.DTOs.FaseReporteDTO>();
 }
 
 <!-- ══ REPORTES INDEX ═══════════════════════════════════════ -->
@@ -64,7 +65,7 @@
     </div>
 </div>
 
-<!-- ══ FILA 2: Partidos por fase + Goleadores ═══════════ -->
+<!-- ══ FILA 2: Partidos por fase + Estado ════════════════ -->
 <div class="row g-3">
 
     <!-- Partidos por fase -->
@@ -74,10 +75,9 @@
                 <h5>🏆 Partidos por fase</h5>
             </div>
 
-            @if (ViewBag.PartidosPorFase != null)
+            @if (fases.Any())
             {
-                var porFase = (dynamic)ViewBag.PartidosPorFase;
-                @foreach (var item in porFase)
+                foreach (var item in fases)
                 {
                     int pct = totalPartidos > 0 ? (int)((double)item.Total / totalPartidos * 100) : 0;
                     int pctFin = item.Total > 0 ? (int)((double)item.Finalizados / item.Total * 100) : 0;
@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    <!-- Estado de partidos (dona visual) -->
+    <!-- Estado de partidos -->
     <div class="col-lg-5">
         <div class="admin-card h-100">
             <div class="card-header-custom">
@@ -116,9 +116,8 @@
             @{
                 int total = totalPartidos > 0 ? totalPartidos : 1;
                 int pctFinalizado = (int)((double)totFinalizados / total * 100);
-                int pctEnCurso    = (int)((double)totEnCurso    / total * 100);
-                int pctPendiente  = 100 - pctFinalizado - pctEnCurso;
-                if (pctPendiente < 0) pctPendiente = 0;
+                int pctEnCurso = (int)((double)totEnCurso / total * 100);
+                int pctPendiente = (int)((double)totPendientes / total * 100);
             }
 
             <div class="mb-3">
@@ -143,7 +142,7 @@
 
             <div class="mb-3">
                 <div class="d-flex justify-content-between mb-1">
-                    <span style="font-size:13px;color:#ffc107;">⏳ Pendientes</span>
+                    <span style="font-size:13px;color:#ffc107;">⏳ Programados</span>
                     <span style="font-size:13px;font-weight:700;">@totPendientes (@pctPendiente%)</span>
                 </div>
                 <div style="height:10px;background:var(--bg-body);border-radius:5px;overflow:hidden;">
@@ -159,51 +158,84 @@
             </div>
             @{
                 int pctActivos = totalUsuarios > 0 ? (int)((double)usuariosActivos / totalUsuarios * 100) : 0;
+                int pctInactivos = totalUsuarios > 0 ? 100 - pctActivos : 0;
             }
             <div class="mb-2">
                 <div class="d-flex justify-content-between mb-1">
                     <span style="font-size:13px;color:#28a745;">✅ Activos</span>
-                    <span style="font-size:13px;font-weight:700;">@usuariosActivos (@pctActivos%)</span>
+                    <span style="font-size:13px;font-weight:700;">@usuariosActivos (@(totalUsuarios > 0 ? pctActivos : 0)%)</span>
                 </div>
                 <div style="height:10px;background:var(--bg-body);border-radius:5px;overflow:hidden;">
-                    <div style="height:100%;width:@pctActivos%;background:var(--color-success);border-radius:5px;"></div>
+                    <div style="height:100%;width:@(totalUsuarios > 0 ? pctActivos : 0)%;background:var(--color-success);border-radius:5px;"></div>
                 </div>
             </div>
             <div class="mb-2">
                 <div class="d-flex justify-content-between mb-1">
                     <span style="font-size:13px;color:#dc3545;">❌ Inactivos</span>
-                    <span style="font-size:13px;font-weight:700;">@(totalUsuarios - usuariosActivos) (@(100 - pctActivos)%)</span>
+                    <span style="font-size:13px;font-weight:700;">@(totalUsuarios - usuariosActivos) (@(totalUsuarios > 0 ? pctInactivos : 0)%)</span>
                 </div>
                 <div style="height:10px;background:var(--bg-body);border-radius:5px;overflow:hidden;">
-                    <div style="height:100%;width:@(100 - pctActivos)%;background:var(--color-danger);border-radius:5px;"></div>
+                    <div style="height:100%;width:@(totalUsuarios > 0 ? pctInactivos : 0)%;background:var(--color-danger);border-radius:5px;"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- ══ TOP GOLEADORES ══════════════════════════════════════ -->
-@if (ViewBag.TopGoleadores != null)
-{
-    var goleadores = (dynamic)ViewBag.TopGoleadores;
-    int maxGoles = 1;
-    foreach (var g in goleadores) { if (g.TotalGoles > maxGoles) maxGoles = g.TotalGoles; }
-
-    <div class="admin-card mt-3">
-        <div class="card-header-custom">
-            <h5>⚽ Top 10 — Selecciones con más goles</h5>
-        </div>
-
-        @foreach (var g in goleadores)
+    <!-- ══ TOP GOLEADORES ══════════════════════════════════════ -->
+    @if (ViewBag.TopGoleadores != null)
+    {
+        var goleadores = (List<FrontendAdministrativo.DTOs.GoleadorDTO>)ViewBag.TopGoleadores;
+        if (goleadores.Any())
         {
-            int pctG = (int)((double)g.TotalGoles / maxGoles * 100);
-            <div class="reporte-bar">
-                <div class="reporte-bar-label" style="min-width:160px;">@g.Seleccion</div>
-                <div class="reporte-bar-track">
-                    <div class="reporte-bar-fill" style="width:@pctG%"></div>
+            <div class="admin-card mt-3">
+                <div class="card-header-custom">
+                    <h5>⚽ Top 10 — Selecciones con más goles</h5>
+                    <span style="font-size:12px;color:var(--text-muted);">
+                        <i class="bi bi-info-circle"></i> Solo partidos finalizados
+                    </span>
                 </div>
-                <div class="reporte-bar-value">@g.TotalGoles ⚽</div>
+
+                @{
+                    int maxGoles = goleadores.Max(g => g.TotalGoles);
+                    int rank = 1;
+                }
+                @foreach (var g in goleadores)
+                {
+                    int pctG = maxGoles > 0 ? (int)((double)g.TotalGoles / maxGoles * 100) : 0;
+                    <div class="reporte-bar" style="margin-bottom:8px;">
+                        <div class="reporte-bar-label" style="min-width:40px;font-weight:700;color:var(--text-muted);">
+                            #@rank
+                        </div>
+                        <div class="reporte-bar-label" style="min-width:160px;">
+                            @g.Seleccion
+                        </div>
+                        <div style="flex:1;">
+                            <div class="reporte-bar-track" style="height:20px;">
+                                <div class="reporte-bar-fill" style="width:@pctG%;height:100%;border-radius:4px;"></div>
+                            </div>
+                        </div>
+                        <div class="reporte-bar-value" style="font-weight:700;color:var(--color-accent);min-width:50px;text-align:right;">
+                            @g.TotalGoles ⚽
+                        </div>
+                    </div>
+                    rank++;
+                }
             </div>
         }
-    </div>
-}
+        else
+        {
+            <div class="admin-card mt-3">
+                <div class="card-header-custom">
+                    <h5>⚽ Top Goleadores</h5>
+                </div>
+                <div style="text-align:center;color:var(--text-muted);padding:20px 0;">
+                    <i class="bi bi-info-circle" style="font-size:24px;display:block;"></i>
+                    No hay goles registrados aún.
+                    <br />
+                    <span style="font-size:12px;">Registra resultados para ver los goleadores.</span>
+                </div>
+            </div>
+        }
+    }
+
+</div>

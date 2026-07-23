@@ -1,16 +1,10 @@
+using FrontendAdministrativo.DTOs;
 using FrontendAdministrativo.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// ============================================================
-// ReportesController.cs — Reportes del panel administrativo
-// ============================================================
-
 namespace FrontendAdministrativo.Controllers
 {
-    /// <summary>
-    /// Genera reportes estadísticos del Mundial 2026.
-    /// </summary>
     [Authorize]
     public class ReportesController : Controller
     {
@@ -25,56 +19,92 @@ namespace FrontendAdministrativo.Controllers
             _logger = logger;
         }
 
-        // ── GET: /Reportes ────────────────────────────────────
         public async Task<IActionResult> Index()
         {
             try
             {
-                // Obtener todos los datos necesarios para los reportes
                 var partidos = await _estadisticasService.GetPartidosAsync();
-                var usuarios = await _estadisticasService.GetUsuariosAsync();
                 var selecciones = await _estadisticasService.GetSeleccionesAsync();
                 var grupos = await _estadisticasService.GetGruposAsync();
+                var usuarios = await _estadisticasService.GetUsuariosAsync();
 
-                // ── Reporte de partidos por fase ──────────────
-                var partidosPorFase = partidos
-                    .GroupBy(p => p.Fase)
-                    .Select(g => new { Fase = g.Key, Total = g.Count(), Finalizados = g.Count(p => p.Estado == "Finalizado") })
-                    .OrderBy(r => r.Fase)
+                // ── Estadísticas por estado ──────────────────────
+                var totalPartidos = partidos.Count;
+                var finalizados = partidos.Count(p => p.Estado == "FINALIZADO");
+                var enCurso = partidos.Count(p => p.Estado == "EnCurso");
+                var programados = partidos.Count(p => p.Estado == "PROGRAMADO");
+
+                // ── Estadísticas por fase ────────────────────────
+                var fases = partidos
+                    .GroupBy(p => p.Fase ?? "Sin fase")
+                    .Select(g => new FaseReporteDTO
+                    {
+                        Fase = g.Key,
+                        Total = g.Count(),
+                        Finalizados = g.Count(p => p.Estado == "FINALIZADO"),
+                        Porcentaje = g.Count() > 0
+                            ? (int)Math.Round((double)g.Count(p => p.Estado == "FINALIZADO") / g.Count() * 100)
+                            : 0
+                    })
                     .ToList();
 
-                // ── Top goleadores (selecciones con más goles) ─
-                var topGoleadores = partidos
+                // ── Top Goleadores ──────────────────────────────
+                var goleadores = partidos
                     .Where(p => p.GolesLocal.HasValue && p.GolesVisitante.HasValue)
-                    .SelectMany(p => new[]
+                    .GroupBy(p => p.SeleccionLocal)
+                    .Select(g => new GoleadorDTO
                     {
-                        new { Seleccion = p.SeleccionLocal, Goles = p.GolesLocal!.Value },
-                        new { Seleccion = p.SeleccionVisitante, Goles = p.GolesVisitante!.Value }
+                        Seleccion = g.Key,
+                        TotalGoles = g.Sum(p => p.GolesLocal ?? 0)
                     })
-                    .GroupBy(x => x.Seleccion)
-                    .Select(g => new { Seleccion = g.Key, TotalGoles = g.Sum(x => x.Goles) })
-                    .OrderByDescending(x => x.TotalGoles)
+                    .Union(
+                        partidos
+                            .Where(p => p.GolesLocal.HasValue && p.GolesVisitante.HasValue)
+                            .GroupBy(p => p.SeleccionVisitante)
+                            .Select(g => new GoleadorDTO
+                            {
+                                Seleccion = g.Key,
+                                TotalGoles = g.Sum(p => p.GolesVisitante ?? 0)
+                            })
+                    )
+                    .GroupBy(g => g.Seleccion)
+                    .Select(g => new GoleadorDTO
+                    {
+                        Seleccion = g.Key,
+                        TotalGoles = g.Sum(x => x.TotalGoles)
+                    })
+                    .OrderByDescending(g => g.TotalGoles)
                     .Take(10)
                     .ToList();
 
-                // Pasar datos a la vista via ViewBag
-                ViewBag.TotalPartidos = partidos.Count;
-                ViewBag.TotalFinalizados = partidos.Count(p => p.Estado == "Finalizado");
-                ViewBag.TotalPendientes = partidos.Count(p => p.Estado == "Pendiente");
-                ViewBag.TotalEnCurso = partidos.Count(p => p.Estado == "EnCurso");
-                ViewBag.TotalUsuarios = usuarios.Count;
-                ViewBag.UsuariosActivos = usuarios.Count(u => u.Activo);
+                // ── Pasar datos a la vista ──────────────────────
+                ViewBag.TotalPartidos = totalPartidos;
+                ViewBag.Finalizados = finalizados;
+                ViewBag.EnCurso = enCurso;
+                ViewBag.Programados = programados;
                 ViewBag.TotalSelecciones = selecciones.Count;
                 ViewBag.TotalGrupos = grupos.Count;
-                ViewBag.PartidosPorFase = partidosPorFase;
-                ViewBag.TopGoleadores = topGoleadores;
+                ViewBag.TotalUsuarios = usuarios.Count;
+                ViewBag.UsuariosActivos = usuarios.Count(u => u.Activo);
+                ViewBag.Fases = fases;
+                ViewBag.TopGoleadores = goleadores;
 
                 return View();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al generar reportes.");
-                TempData["Error"] = "No se pudieron generar los reportes. Verifique la conexión con la API.";
+                _logger.LogError(ex, "Error al cargar reportes.");
+                ViewBag.TotalPartidos = 0;
+                ViewBag.Finalizados = 0;
+                ViewBag.EnCurso = 0;
+                ViewBag.Programados = 0;
+                ViewBag.TotalSelecciones = 0;
+                ViewBag.TotalGrupos = 0;
+                ViewBag.TotalUsuarios = 0;
+                ViewBag.UsuariosActivos = 0;
+                ViewBag.Fases = new List<FaseReporteDTO>();
+                ViewBag.TopGoleadores = new List<GoleadorDTO>();
+                ViewBag.Error = "No se pudieron cargar los datos.";
                 return View();
             }
         }

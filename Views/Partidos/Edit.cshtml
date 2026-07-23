@@ -1,9 +1,8 @@
 @model FrontendAdministrativo.DTOs.PartidoDTO
 @{
     ViewData["Title"] = "Editar Partido";
+    var esFinalizado = Model.Estado == "FINALIZADO";
 }
-
-<!-- ══ PARTIDOS EDIT ════════════════════════════════════════ -->
 
 <div class="page-header">
     <div>
@@ -15,29 +14,58 @@
     </a>
 </div>
 
+@if (TempData["Error"] != null)
+{
+    <div class="alert-admin alert-admin-error mb-3">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        @TempData["Error"]
+    </div>
+}
+
+@if (esFinalizado)
+{
+    <div class="alert-admin alert-admin-error mb-3 d-flex align-items-center gap-2" style="border-left: 4px solid #dc3545;">
+        <i class="bi bi-lock-fill" style="font-size:1.1rem;"></i>
+        <div>
+            <strong>❌ Partido Finalizado</strong><br>
+            <span style="font-size:0.9rem;">Este partido ya ha concluido y no puede ser editado. Los resultados son definitivos.</span>
+        </div>
+    </div>
+}
+
 <div class="admin-card" style="max-width: 780px;">
 
-    <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+    <form asp-action="Edit" method="post">
         @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
 
-        <!-- Validación summary -->
-        <div asp-validation-summary="ModelOnly" class="alert-admin alert-admin-error mb-3"
-             style="display:@(ViewData.ModelState.ErrorCount > 0 ? "flex" : "none")"></div>
-
-        <!-- ID oculto -->
-        <input asp-for="Id" type="hidden" />
+        <div asp-validation-summary="All" class="alert-admin alert-admin-error mb-3"
+             style="display:@(ViewData.ModelState.ErrorCount > 0 ? "block" : "none")">
+        </div>
 
         <!-- ── Selecciones ─────────────────────────────────── -->
         <div class="row g-3 mb-3">
             <div class="col-md-5">
                 <div class="form-group-admin">
-                    <label asp-for="SeleccionLocal">🏳️ Selección Local</label>
-                    <select asp-for="SeleccionLocal"
-                            asp-items="ViewBag.Selecciones"
-                            class="form-control-admin">
+                    <label asp-for="EquipoLocalId" class="form-label">🏳️ Selección Local</label>
+                    <select asp-for="EquipoLocalId" class="form-control-admin">
                         <option value="">-- Seleccione --</option>
+                        @if (ViewBag.Selecciones != null)
+                        {
+                            foreach (var item in ViewBag.Selecciones)
+                            {
+                                if (item.Value == Model.EquipoLocalId.ToString())
+                                {
+                                    <option value="@item.Value" selected>@item.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        }
                     </select>
-                    <span asp-validation-for="SeleccionLocal" class="text-danger small"></span>
+                    <span asp-validation-for="EquipoLocalId" class="text-danger small"></span>
                 </div>
             </div>
             <div class="col-md-2 d-flex align-items-end justify-content-center pb-1">
@@ -45,13 +73,25 @@
             </div>
             <div class="col-md-5">
                 <div class="form-group-admin">
-                    <label asp-for="SeleccionVisitante">🏳️ Selección Visitante</label>
-                    <select asp-for="SeleccionVisitante"
-                            asp-items="ViewBag.SeleccionesVisitante"
-                            class="form-control-admin">
+                    <label asp-for="EquipoVisitanteId" class="form-label">🏳️ Selección Visitante</label>
+                    <select asp-for="EquipoVisitanteId" class="form-control-admin">
                         <option value="">-- Seleccione --</option>
+                        @if (ViewBag.Selecciones != null)
+                        {
+                            foreach (var item in ViewBag.Selecciones)
+                            {
+                                if (item.Value == Model.EquipoVisitanteId.ToString())
+                                {
+                                    <option value="@item.Value" selected>@item.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        }
                     </select>
-                    <span asp-validation-for="SeleccionVisitante" class="text-danger small"></span>
+                    <span asp-validation-for="EquipoVisitanteId" class="text-danger small"></span>
                 </div>
             </div>
         </div>
@@ -60,21 +100,43 @@
         <div class="row g-3 mb-3">
             <div class="col-md-6">
                 <div class="form-group-admin">
-                    <label asp-for="Fase">🏆 Fase</label>
-                    <select asp-for="Fase"
-                            asp-items="ViewBag.Fases"
-                            class="form-control-admin">
+                    <label asp-for="Fase" class="form-label">🏆 Fase</label>
+                    <select asp-for="Fase" class="form-control-admin">
                         <option value="">-- Seleccione --</option>
+                        @{
+                            var fases = new List<SelectListItem>
+                            {
+                                new SelectListItem { Value = "GRUPOS", Text = "Fase de grupos" },
+                                new SelectListItem { Value = "DIECISEISAVOS", Text = "Dieciseisavos de final" },
+                                new SelectListItem { Value = "OCTAVOS", Text = "Octavos de final" },
+                                new SelectListItem { Value = "CUARTOS", Text = "Cuartos de final" },
+                                new SelectListItem { Value = "SEMIFINAL", Text = "Semifinales" },
+                                new SelectListItem { Value = "TERCER_PUESTO", Text = "Tercer puesto" },
+                                new SelectListItem { Value = "FINAL", Text = "Final" }
+                            };
+                            foreach (var fase in fases)
+                            {
+                                if (fase.Value == Model.Fase)
+                                {
+                                    <option value="@fase.Value" selected>@fase.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@fase.Value">@fase.Text</option>
+                                }
+                            }
+                        }
                     </select>
                     <span asp-validation-for="Fase" class="text-danger small"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group-admin">
-                    <label asp-for="FechaHora">📅 Fecha y Hora</label>
+                    <label asp-for="FechaHora" class="form-label">📅 Fecha y Hora</label>
                     <input asp-for="FechaHora"
                            type="datetime-local"
-                           class="form-control-admin" />
+                           class="form-control-admin"
+                           value="@Model.FechaHora.ToString("yyyy-MM-ddTHH:mm")" />
                     <span asp-validation-for="FechaHora" class="text-danger small"></span>
                 </div>
             </div>
@@ -84,30 +146,60 @@
         <div class="row g-3 mb-4">
             <div class="col-md-8">
                 <div class="form-group-admin">
-                    <label asp-for="Sede">🏟️ Sede</label>
-                    <select asp-for="Sede"
-                            asp-items="ViewBag.Sedes"
-                            class="form-control-admin">
+                    <label asp-for="SedeId" class="form-label">🏟️ Sede</label>
+                    <select asp-for="SedeId" class="form-control-admin">
                         <option value="">-- Seleccione --</option>
+                        @if (ViewBag.Sedes != null)
+                        {
+                            foreach (var item in ViewBag.Sedes)
+                            {
+                                if (item.Value == Model.SedeId.ToString())
+                                {
+                                    <option value="@item.Value" selected>@item.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        }
                     </select>
-                    <span asp-validation-for="Sede" class="text-danger small"></span>
+                    <span asp-validation-for="SedeId" class="text-danger small"></span>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group-admin">
-                    <label asp-for="Estado">📋 Estado</label>
-                    <select asp-for="Estado"
-                            asp-items="ViewBag.Estados"
-                            class="form-control-admin">
+                    <label asp-for="Estado" class="form-label">📋 Estado</label>
+                    <select asp-for="Estado" class="form-control-admin">
+                        <option value="">-- Seleccione --</option>
+                        @{
+                            var estados = new List<SelectListItem>
+                            {
+                                new SelectListItem { Value = "PROGRAMADO", Text = "Programado" },
+                                new SelectListItem { Value = "EnCurso", Text = "En Curso" },
+                                new SelectListItem { Value = "FINALIZADO", Text = "Finalizado" }
+                            };
+                            foreach (var estado in estados)
+                            {
+                                if (estado.Value == Model.Estado)
+                                {
+                                    <option value="@estado.Value" selected>@estado.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@estado.Value">@estado.Text</option>
+                                }
+                            }
+                        }
                     </select>
                     <span asp-validation-for="Estado" class="text-danger small"></span>
                 </div>
             </div>
         </div>
 
-        <!-- ── Botones ─────────────────────────────────────── -->
+        <!-- ── Botones ────────────────────────────────── -->
         <div class="d-flex gap-2">
-            <button type="submit" class="btn-admin btn-admin-primary">
+            <button type="submit" class="btn-admin btn-admin-primary" @(esFinalizado ? "disabled" : "") title="@(esFinalizado ? "No se puede editar un partido finalizado" : "")">
                 <i class="bi bi-check-lg"></i> Guardar cambios
             </button>
             <a asp-action="Details" asp-route-id="@Model.Id" class="btn-admin btn-admin-secondary">

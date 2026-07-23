@@ -11,9 +11,6 @@ namespace FrontendAdministrativo.DTOs
     /// </summary>
     public class ResultadoDTO
     {
-        [Required]
-        public int PartidoId { get; set; }
-
         [Required(ErrorMessage = "Los goles del equipo local son obligatorios.")]
         [Display(Name = "Goles Local")]
         [Range(0, 99, ErrorMessage = "Los goles deben ser entre 0 y 99.")]

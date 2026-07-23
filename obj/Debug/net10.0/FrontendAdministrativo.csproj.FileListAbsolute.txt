@@ -105,3 +105,323 @@ C:\Users\LJSN\source\repos\ProyectoIntegrador\ProyectoIntegrador_GolMundial\Fron
 C:\Users\LJSN\source\repos\ProyectoIntegrador\ProyectoIntegrador_GolMundial\FrontendAdministrativo\obj\Debug\net10.0\compressed\97x57297pt-{0}-m9qm4tazc0-m9qm4tazc0.gz
 C:\Users\LJSN\source\repos\ProyectoIntegrador\ProyectoIntegrador_GolMundial\FrontendAdministrativo\obj\Debug\net10.0\compressed\zrpyvr7obz-{0}-jjsuc0puko-jjsuc0puko.gz
 C:\Users\LJSN\source\repos\ProyectoIntegrador\ProyectoIntegrador_GolMundial\FrontendAdministrativo\obj\Debug\net10.0\compressed\7sau4zs4ld-{0}-9vr69e8ynj-9vr69e8ynj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\appsettings.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\FrontendAdministrativo.staticwebassets.runtime.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\FrontendAdministrativo.staticwebassets.endpoints.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\FrontendAdministrativo.exe
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\FrontendAdministrativo.deps.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\FrontendAdministrativo.runtimeconfig.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\FrontendAdministrativo.pdb
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.csproj.AssemblyReference.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.AssemblyInfoInputs.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.AssemblyInfo.cs
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.csproj.CoreCompileInputs.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.RazorAssemblyInfo.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.RazorAssemblyInfo.cs
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.sourcelink.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\scopedcss\bundle\FrontendAdministrativo.styles.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\scopedcss\projectbundle\FrontendAdministrativo.bundle.scp.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\17dlko239x-{0}-43d1014acd-43d1014acd.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\lta7w56xu2-{0}-b9sayid5wm-b9sayid5wm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\7szxavv1xe-{0}-61n19gt1b8-61n19gt1b8.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\77r3jh53wg-{0}-02zd10dpn7-02zd10dpn7.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\uuu409iemv-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\r4a9vy415s-{0}-t1cqhe9u97-t1cqhe9u97.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\lopoau42c5-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\gf4g5663wa-{0}-sejl45xvog-sejl45xvog.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\na9go6wvwn-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\ulizrioygk-{0}-xvp3kq03qx-xvp3kq03qx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\s4p9yli99g-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\3iq359tie3-{0}-22vffe00uq-22vffe00uq.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\e5t99bh63b-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\50pe2yv9lp-{0}-qesaa3a1fm-qesaa3a1fm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\c4o4acuqtw-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\npfu1a1kgf-{0}-tmc1g35s3z-tmc1g35s3z.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\de0muadgav-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\fs4deqds69-{0}-rxsg74s51o-rxsg74s51o.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\osxan6k01n-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\k86kkvhttv-{0}-q9ht133ko3-q9ht133ko3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\0tkdu3nqkl-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\fjstpo9dmz-{0}-gye83jo8yx-gye83jo8yx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\b5ecul2w7w-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\vlcputqfaq-{0}-wl58j5mj3v-wl58j5mj3v.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\apd77s53bl-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\796pp4xnpw-{0}-d4r6k3f320-d4r6k3f320.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\5813tfibsz-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\htayuvt9wb-{0}-keugtjm085-keugtjm085.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\8wijuak720-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\xlao938fi5-{0}-zub09dkrxp-zub09dkrxp.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\sxbjf5x3h0-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\2cktkgtocs-{0}-43atpzeawx-43atpzeawx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\p39v1b255i-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\jnkib9xbmv-{0}-ynyaa8k90p-ynyaa8k90p.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\yocyy0k783-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\ozizsaxa1x-{0}-c63t5i9ira-c63t5i9ira.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\0kx6u9use6-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\4ghpm4zmlc-{0}-4094rpi4f9-4094rpi4f9.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\o70k4o9zlu-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\nntjrwh7rn-{0}-hd3gran6i8-hd3gran6i8.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\b8fklkr5mi-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\wl1t1wn34v-{0}-ltid2c489k-ltid2c489k.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\ye400dzh0l-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\kjqu4d1s8d-{0}-8vyfqsqgz1-8vyfqsqgz1.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\q4bjiiool2-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\55weq2h5v4-{0}-u9q1upor1n-u9q1upor1n.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\a3clkgnda8-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\xrzepk8t44-{0}-4d85u1mtcx-4d85u1mtcx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\62bo8u0et3-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\d3kul02jyc-{0}-03hjc8e09r-03hjc8e09r.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\oz6svkho7i-{0}-48y08845bh-48y08845bh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\522xwlmnsb-{0}-356vix0kms-356vix0kms.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\vafl9ggnud-{0}-83jwlth58m-83jwlth58m.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\p7vr8w43y5-{0}-mrlpezrjn3-mrlpezrjn3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\ygbl3rl2u4-{0}-worgj0nhwm-worgj0nhwm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\7v67j4g749-{0}-gk0pw8i4co-gk0pw8i4co.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\n5h5as41jv-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\6juyqfwyby-{0}-d6nrnj6jjx-d6nrnj6jjx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\97x57297pt-{0}-m9qm4tazc0-m9qm4tazc0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\4ncvw8rk99-{0}-ttgo8qnofa-ttgo8qnofa.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\zrpyvr7obz-{0}-jjsuc0puko-jjsuc0puko.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\7sau4zs4ld-{0}-9vr69e8ynj-9vr69e8ynj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\w84yu2rde2-{0}-87fc7y1x7t-87fc7y1x7t.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\yb294rvfi8-{0}-mlv21k5csn-mlv21k5csn.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\ud94b6ifdt-{0}-6pxna8irfh-6pxna8irfh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\compressed\vfebdt6cyz-{0}-6pxna8irfh-6pxna8irfh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\Frontend.7C229F9F.Up2Date
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\refint\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.pdb
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\FrontendAdministrativo.genruntimeconfig.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\ref\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\appsettings.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\FrontendAdministrativo.staticwebassets.endpoints.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\FrontendAdministrativo.staticwebassets.runtime.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\FrontendAdministrativo.exe
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\FrontendAdministrativo.deps.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\FrontendAdministrativo.runtimeconfig.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\FrontendAdministrativo.pdb
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.csproj.AssemblyReference.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.AssemblyInfoInputs.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.AssemblyInfo.cs
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.csproj.CoreCompileInputs.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.RazorAssemblyInfo.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.RazorAssemblyInfo.cs
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.sourcelink.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\scopedcss\bundle\FrontendAdministrativo.styles.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\scopedcss\projectbundle\FrontendAdministrativo.bundle.scp.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\17dlko239x-{0}-43d1014acd-43d1014acd.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\lta7w56xu2-{0}-b9sayid5wm-b9sayid5wm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\7szxavv1xe-{0}-61n19gt1b8-61n19gt1b8.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\77r3jh53wg-{0}-02zd10dpn7-02zd10dpn7.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\uuu409iemv-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\r4a9vy415s-{0}-t1cqhe9u97-t1cqhe9u97.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\lopoau42c5-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\gf4g5663wa-{0}-sejl45xvog-sejl45xvog.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\na9go6wvwn-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\ulizrioygk-{0}-xvp3kq03qx-xvp3kq03qx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\s4p9yli99g-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\3iq359tie3-{0}-22vffe00uq-22vffe00uq.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\e5t99bh63b-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\50pe2yv9lp-{0}-qesaa3a1fm-qesaa3a1fm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\c4o4acuqtw-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\npfu1a1kgf-{0}-tmc1g35s3z-tmc1g35s3z.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\de0muadgav-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\fs4deqds69-{0}-rxsg74s51o-rxsg74s51o.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\osxan6k01n-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\k86kkvhttv-{0}-q9ht133ko3-q9ht133ko3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\0tkdu3nqkl-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\fjstpo9dmz-{0}-gye83jo8yx-gye83jo8yx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\b5ecul2w7w-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\vlcputqfaq-{0}-wl58j5mj3v-wl58j5mj3v.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\apd77s53bl-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\796pp4xnpw-{0}-d4r6k3f320-d4r6k3f320.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\5813tfibsz-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\htayuvt9wb-{0}-keugtjm085-keugtjm085.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\8wijuak720-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\xlao938fi5-{0}-zub09dkrxp-zub09dkrxp.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\sxbjf5x3h0-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\2cktkgtocs-{0}-43atpzeawx-43atpzeawx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\p39v1b255i-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\jnkib9xbmv-{0}-ynyaa8k90p-ynyaa8k90p.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\yocyy0k783-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\ozizsaxa1x-{0}-c63t5i9ira-c63t5i9ira.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\0kx6u9use6-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\4ghpm4zmlc-{0}-4094rpi4f9-4094rpi4f9.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\o70k4o9zlu-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\nntjrwh7rn-{0}-hd3gran6i8-hd3gran6i8.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\b8fklkr5mi-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\wl1t1wn34v-{0}-ltid2c489k-ltid2c489k.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\ye400dzh0l-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\kjqu4d1s8d-{0}-8vyfqsqgz1-8vyfqsqgz1.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\q4bjiiool2-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\55weq2h5v4-{0}-u9q1upor1n-u9q1upor1n.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\a3clkgnda8-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\xrzepk8t44-{0}-4d85u1mtcx-4d85u1mtcx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\62bo8u0et3-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\d3kul02jyc-{0}-03hjc8e09r-03hjc8e09r.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\oz6svkho7i-{0}-48y08845bh-48y08845bh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\522xwlmnsb-{0}-356vix0kms-356vix0kms.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\vafl9ggnud-{0}-83jwlth58m-83jwlth58m.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\p7vr8w43y5-{0}-mrlpezrjn3-mrlpezrjn3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\ygbl3rl2u4-{0}-worgj0nhwm-worgj0nhwm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\7v67j4g749-{0}-gk0pw8i4co-gk0pw8i4co.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\n5h5as41jv-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\6juyqfwyby-{0}-d6nrnj6jjx-d6nrnj6jjx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\97x57297pt-{0}-m9qm4tazc0-m9qm4tazc0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\4ncvw8rk99-{0}-ttgo8qnofa-ttgo8qnofa.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\zrpyvr7obz-{0}-jjsuc0puko-jjsuc0puko.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\7sau4zs4ld-{0}-9vr69e8ynj-9vr69e8ynj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\w84yu2rde2-{0}-87fc7y1x7t-87fc7y1x7t.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\yb294rvfi8-{0}-mlv21k5csn-mlv21k5csn.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\ud94b6ifdt-{0}-6pxna8irfh-6pxna8irfh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\compressed\vfebdt6cyz-{0}-6pxna8irfh-6pxna8irfh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\Frontend.7C229F9F.Up2Date
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\refint\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.pdb
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\FrontendAdministrativo.genruntimeconfig.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia\obj\Debug\net10.0\ref\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\appsettings.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\FrontendAdministrativo.staticwebassets.endpoints.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\FrontendAdministrativo.staticwebassets.runtime.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\FrontendAdministrativo.exe
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\FrontendAdministrativo.deps.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\FrontendAdministrativo.runtimeconfig.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\FrontendAdministrativo.pdb
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.csproj.AssemblyReference.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.AssemblyInfoInputs.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.AssemblyInfo.cs
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.csproj.CoreCompileInputs.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.RazorAssemblyInfo.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.RazorAssemblyInfo.cs
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.sourcelink.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\scopedcss\bundle\FrontendAdministrativo.styles.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\scopedcss\projectbundle\FrontendAdministrativo.bundle.scp.css
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\17dlko239x-{0}-43d1014acd-43d1014acd.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\lta7w56xu2-{0}-b9sayid5wm-b9sayid5wm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\7szxavv1xe-{0}-61n19gt1b8-61n19gt1b8.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\77r3jh53wg-{0}-02zd10dpn7-02zd10dpn7.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\uuu409iemv-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\r4a9vy415s-{0}-t1cqhe9u97-t1cqhe9u97.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\lopoau42c5-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\gf4g5663wa-{0}-sejl45xvog-sejl45xvog.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\na9go6wvwn-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\ulizrioygk-{0}-xvp3kq03qx-xvp3kq03qx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\s4p9yli99g-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\3iq359tie3-{0}-22vffe00uq-22vffe00uq.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\e5t99bh63b-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\50pe2yv9lp-{0}-qesaa3a1fm-qesaa3a1fm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\c4o4acuqtw-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\npfu1a1kgf-{0}-tmc1g35s3z-tmc1g35s3z.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\de0muadgav-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\fs4deqds69-{0}-rxsg74s51o-rxsg74s51o.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\osxan6k01n-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\k86kkvhttv-{0}-q9ht133ko3-q9ht133ko3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\0tkdu3nqkl-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\fjstpo9dmz-{0}-gye83jo8yx-gye83jo8yx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\b5ecul2w7w-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\vlcputqfaq-{0}-wl58j5mj3v-wl58j5mj3v.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\apd77s53bl-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\796pp4xnpw-{0}-d4r6k3f320-d4r6k3f320.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\5813tfibsz-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\htayuvt9wb-{0}-keugtjm085-keugtjm085.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\8wijuak720-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\xlao938fi5-{0}-zub09dkrxp-zub09dkrxp.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\sxbjf5x3h0-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\2cktkgtocs-{0}-43atpzeawx-43atpzeawx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\p39v1b255i-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\jnkib9xbmv-{0}-ynyaa8k90p-ynyaa8k90p.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\yocyy0k783-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\ozizsaxa1x-{0}-c63t5i9ira-c63t5i9ira.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\0kx6u9use6-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\4ghpm4zmlc-{0}-4094rpi4f9-4094rpi4f9.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\o70k4o9zlu-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\nntjrwh7rn-{0}-hd3gran6i8-hd3gran6i8.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\b8fklkr5mi-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\wl1t1wn34v-{0}-ltid2c489k-ltid2c489k.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\ye400dzh0l-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\kjqu4d1s8d-{0}-8vyfqsqgz1-8vyfqsqgz1.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\q4bjiiool2-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\55weq2h5v4-{0}-u9q1upor1n-u9q1upor1n.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\a3clkgnda8-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\xrzepk8t44-{0}-4d85u1mtcx-4d85u1mtcx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\62bo8u0et3-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\d3kul02jyc-{0}-03hjc8e09r-03hjc8e09r.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\oz6svkho7i-{0}-48y08845bh-48y08845bh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\522xwlmnsb-{0}-356vix0kms-356vix0kms.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\vafl9ggnud-{0}-83jwlth58m-83jwlth58m.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\p7vr8w43y5-{0}-mrlpezrjn3-mrlpezrjn3.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\ygbl3rl2u4-{0}-worgj0nhwm-worgj0nhwm.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\7v67j4g749-{0}-gk0pw8i4co-gk0pw8i4co.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\n5h5as41jv-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\6juyqfwyby-{0}-d6nrnj6jjx-d6nrnj6jjx.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\97x57297pt-{0}-m9qm4tazc0-m9qm4tazc0.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\4ncvw8rk99-{0}-ttgo8qnofa-ttgo8qnofa.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\zrpyvr7obz-{0}-jjsuc0puko-jjsuc0puko.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\7sau4zs4ld-{0}-9vr69e8ynj-9vr69e8ynj.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\w84yu2rde2-{0}-87fc7y1x7t-87fc7y1x7t.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\yb294rvfi8-{0}-mlv21k5csn-mlv21k5csn.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\ud94b6ifdt-{0}-6pxna8irfh-6pxna8irfh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\compressed\vfebdt6cyz-{0}-6pxna8irfh-6pxna8irfh.gz
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\Frontend.7C229F9F.Up2Date
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\refint\FrontendAdministrativo.dll
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.pdb
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\FrontendAdministrativo.genruntimeconfig.cache
+C:\Users\LJSN\Desktop\FrontendAdministrativo - copia - copia\obj\Debug\net10.0\ref\FrontendAdministrativo.dll

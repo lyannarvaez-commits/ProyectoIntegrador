@@ -15,26 +15,52 @@
     </a>
 </div>
 
+@if (TempData["Error"] != null)
+{
+    <div class="alert-admin alert-admin-error mb-3">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        @TempData["Error"]
+    </div>
+}
+
+@if (TempData["Exito"] != null)
+{
+    <div class="alert-admin alert-admin-success mb-3">
+        <i class="bi bi-check-circle-fill"></i>
+        @TempData["Exito"]
+    </div>
+}
+
 <div class="admin-card" style="max-width: 780px;">
 
-    <form asp-action="Create" method="post">
+    <form asp-action="Create" method="post" id="createPartidoForm" novalidate>
         @Html.AntiForgeryToken()
 
         <!-- Validación summary -->
-        <div asp-validation-summary="ModelOnly" class="alert-admin alert-admin-error mb-3"
-             style="display:@(ViewData.ModelState.ErrorCount > 0 ? "flex" : "none")"></div>
+        <div asp-validation-summary="All" class="alert-admin alert-admin-error mb-3"
+             style="display:@(ViewData.ModelState.ErrorCount > 0 ? "block" : "none")">
+        </div>
 
         <!-- ── Selecciones ─────────────────────────────────── -->
         <div class="row g-3 mb-3">
             <div class="col-md-5">
                 <div class="form-group-admin">
-                    <label asp-for="SeleccionLocal">🏳️ Selección Local</label>
-                    <select asp-for="SeleccionLocal"
-                            asp-items="ViewBag.Selecciones"
-                            class="form-control-admin">
+                    <label asp-for="EquipoLocalId" class="form-label">🏳️ Selección Local</label>
+                    <select asp-for="EquipoLocalId" class="form-control-admin" id="EquipoLocalId">
                         <option value="">-- Seleccione --</option>
+                        @if (ViewBag.Selecciones != null)
+                        {
+                            var selecciones = (IEnumerable<SelectListItem>)ViewBag.Selecciones;
+                            if (selecciones.Any())
+                            {
+                                foreach (var item in selecciones)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        }
                     </select>
-                    <span asp-validation-for="SeleccionLocal" class="text-danger small"></span>
+                    <span asp-validation-for="EquipoLocalId" class="text-danger small"></span>
                 </div>
             </div>
             <div class="col-md-2 d-flex align-items-end justify-content-center pb-1">
@@ -42,36 +68,64 @@
             </div>
             <div class="col-md-5">
                 <div class="form-group-admin">
-                    <label asp-for="SeleccionVisitante">🏳️ Selección Visitante</label>
-                    <select asp-for="SeleccionVisitante"
-                            asp-items="ViewBag.SeleccionesVisitante"
-                            class="form-control-admin">
+                    <label asp-for="EquipoVisitanteId" class="form-label">🏳️ Selección Visitante</label>
+                    <select asp-for="EquipoVisitanteId" class="form-control-admin" id="EquipoVisitanteId">
                         <option value="">-- Seleccione --</option>
+                        @if (ViewBag.Selecciones != null)
+                        {
+                            var selecciones = (IEnumerable<SelectListItem>)ViewBag.Selecciones;
+                            if (selecciones.Any())
+                            {
+                                foreach (var item in selecciones)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        }
                     </select>
-                    <span asp-validation-for="SeleccionVisitante" class="text-danger small"></span>
+                    <span asp-validation-for="EquipoVisitanteId" class="text-danger small"></span>
                 </div>
             </div>
         </div>
+
+        <!-- ══ MENSAJE SI NO HAY SELECCIONES ACTIVAS ══════════ -->
+        @{
+            var haySelecciones = ViewBag.Selecciones != null && ((IEnumerable<SelectListItem>)ViewBag.Selecciones).Any();
+        }
+        @if (!haySelecciones)
+        {
+            <div class="alert-admin alert-admin-warning mb-3">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                No hay selecciones disponibles. Todas las selecciones han sido eliminadas del torneo.
+            </div>
+        }
 
         <!-- ── Fase y Fecha ────────────────────────────────── -->
         <div class="row g-3 mb-3">
             <div class="col-md-6">
                 <div class="form-group-admin">
-                    <label asp-for="Fase">🏆 Fase</label>
-                    <select asp-for="Fase"
-                            asp-items="ViewBag.Fases"
-                            class="form-control-admin">
+                    <label asp-for="Fase" class="form-label">🏆 Fase</label>
+                    <select asp-for="Fase" class="form-control-admin" id="Fase">
                         <option value="">-- Seleccione --</option>
+                        <option value="GRUPOS">Fase de grupos</option>
+                        <option value="DIECISEISAVOS">Dieciseisavos de final</option>
+                        <option value="OCTAVOS">Octavos de final</option>
+                        <option value="CUARTOS">Cuartos de final</option>
+                        <option value="SEMIFINAL">Semifinales</option>
+                        <option value="TERCER_PUESTO">Tercer puesto</option>
+                        <option value="FINAL">Final</option>
                     </select>
                     <span asp-validation-for="Fase" class="text-danger small"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group-admin">
-                    <label asp-for="FechaHora">📅 Fecha y Hora (dd/MM/yyyy HH:mm)</label>
+                    <label asp-for="FechaHora" class="form-label">📅 Fecha y Hora</label>
                     <input asp-for="FechaHora"
                            type="datetime-local"
-                           class="form-control-admin" />
+                           class="form-control-admin"
+                           id="FechaHora"
+                           value="@Model.FechaHora.ToString("yyyy-MM-ddTHH:mm")" />
                     <span asp-validation-for="FechaHora" class="text-danger small"></span>
                 </div>
             </div>
@@ -81,21 +135,27 @@
         <div class="row g-3 mb-4">
             <div class="col-md-8">
                 <div class="form-group-admin">
-                    <label asp-for="Sede">🏟️ Sede</label>
-                    <select asp-for="Sede"
-                            asp-items="ViewBag.Sedes"
-                            class="form-control-admin">
+                    <label asp-for="SedeId" class="form-label">🏟️ Sede</label>
+                    <select asp-for="SedeId" class="form-control-admin" id="SedeId">
                         <option value="">-- Seleccione --</option>
+                        @if (ViewBag.Sedes != null)
+                        {
+                            foreach (var item in ViewBag.Sedes)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
                     </select>
-                    <span asp-validation-for="Sede" class="text-danger small"></span>
+                    <span asp-validation-for="SedeId" class="text-danger small"></span>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group-admin">
-                    <label asp-for="Estado">📋 Estado</label>
-                    <select asp-for="Estado"
-                            asp-items="ViewBag.Estados"
-                            class="form-control-admin">
+                    <label asp-for="Estado" class="form-label">📋 Estado</label>
+                    <select asp-for="Estado" class="form-control-admin" id="Estado">
+                        <option value="PROGRAMADO">Programado</option>
+                        <option value="EnCurso">En Curso</option>
+                        <option value="FINALIZADO">Finalizado</option>
                     </select>
                     <span asp-validation-for="Estado" class="text-danger small"></span>
                 </div>
@@ -103,8 +163,8 @@
         </div>
 
         <!-- ── Botones ─────────────────────────────────────── -->
-        <div class="d-flex gap-2">
-            <button type="submit" class="btn-admin btn-admin-primary">
+        <div class="d-flex gap-2 mt-4">
+            <button type="submit" class="btn-admin btn-admin-primary" id="btnCrearPartido">
                 <i class="bi bi-check-lg"></i> Crear partido
             </button>
             <a asp-action="Index" class="btn-admin btn-admin-secondary">
@@ -115,6 +175,70 @@
     </form>
 </div>
 
+@* ══ SECCIÓN: EQUIPOS ELIMINADOS ══════════════════════════ *@
+@{
+    var equiposEliminados = ViewBag.EquiposEliminados as List<FrontendAdministrativo.DTOs.SeleccionDTO>;
+}
+<div class="admin-card mt-4" style="max-width: 780px;">
+    <div class="d-flex align-items-center gap-2 mb-3">
+        <span style="font-size:1.3rem;">🚫</span>
+        <h5 class="mb-0" style="font-weight:700; color: var(--color-danger, #dc3545);">Equipos Eliminados</h5>
+    </div>
+
+    @if (equiposEliminados == null || !equiposEliminados.Any())
+    {
+        <div class="alert-admin alert-admin-success d-flex align-items-center gap-2" style="font-size:0.95rem;">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>✅ No hay equipos eliminados.</span>
+        </div>
+    }
+    else
+    {
+        <p class="mb-2" style="font-size:0.85rem; color: var(--color-text-muted, #888);">
+            Los siguientes equipos han sido eliminados del torneo y no pueden participar en nuevos partidos.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+            @foreach (var equipo in equiposEliminados)
+            {
+                <span style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 5px 13px;
+                    border-radius: 20px;
+                    background: rgba(220, 53, 69, 0.12);
+                    color: #e05260;
+                    border: 1px solid rgba(220, 53, 69, 0.35);
+                    font-size: 0.82rem;
+                    font-weight: 600;
+                    letter-spacing: 0.02em;">
+                    <i class="bi bi-x-circle-fill" style="font-size:0.75rem;"></i>
+                    @equipo.Nombre
+                </span>
+            }
+        </div>
+        <div class="mt-2" style="font-size:0.78rem; color: var(--color-text-muted, #888);">
+            Total: <strong>@equiposEliminados.Count</strong> equipo(s) eliminado(s)
+        </div>
+    }
+</div>
+
 @section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // 🔥 SCRIPT DE DEPURACIÓN Y VALIDACIÓN
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('createPartidoForm');
+            
+            form.addEventListener('submit', function(e) {
+                console.log('✅ Formulario enviado!');
+                console.log('LocalId:', document.getElementById('EquipoLocalId').value);
+                console.log('VisitanteId:', document.getElementById('EquipoVisitanteId').value);
+                console.log('SedeId:', document.getElementById('SedeId').value);
+                console.log('Fase:', document.getElementById('Fase').value);
+                console.log('FechaHora:', document.getElementById('FechaHora').value);
+                console.log('Estado:', document.getElementById('Estado').value);
+            });
+        });
+    </script>
 }

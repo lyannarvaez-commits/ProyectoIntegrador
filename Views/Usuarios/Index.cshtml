@@ -1,7 +1,7 @@
 @model List<FrontendAdministrativo.DTOs.UsuarioDTO>
 @{
     ViewData["Title"] = "Usuarios";
-    string filtroRol      = ViewBag.FiltroRol ?? "";
+    string filtroRol = ViewBag.FiltroRol ?? "";
     string filtroBusqueda = ViewBag.FiltroBusqueda ?? "";
 }
 
@@ -33,9 +33,12 @@
         <select name="filtroRol" class="form-control-admin" style="max-width:180px;"
                 onchange="this.form.submit()">
             <option value="" selected="@(string.IsNullOrEmpty(filtroRol))">Todos los roles</option>
-            @foreach (var rol in (List<string>)ViewBag.Roles)
+            @if (ViewBag.Roles != null)
             {
-                <option value="@rol" selected="@(filtroRol == rol)">@rol</option>
+                foreach (var rol in (List<string>)ViewBag.Roles)
+                {
+                    <option value="@rol" selected="@(filtroRol == rol)">@rol</option>
+                }
             }
         </select>
 
@@ -56,7 +59,7 @@
                 <tr>
                     <th>#</th>
                     <th>Nombre</th>
-                    <th>Email</th>
+                    <th>Usuario</th>
                     <th>Rol</th>
                     <th>Estado</th>
                     <th>Registro</th>
@@ -90,11 +93,20 @@
                                 </div>
                             </td>
 
-                            <td style="color:var(--text-secondary);font-size:12px;">@usuario.Email</td>
+                            <td style="color:var(--text-secondary);font-size:12px;">@usuario.Username</td>
 
                             <td>
-                                <span class="badge-estado @(usuario.Rol == "Administrador" ? "badge-admin" : "badge-usuario")">
-                                    @usuario.Rol
+                                @{
+                                    string rolNombre = usuario.Rol?.Nombre ?? "Sin rol";
+                                    string badgeClass = (rolNombre == "ADMINISTRADOR" || rolNombre == "Administrador")
+                                        ? "badge-estado badge-admin"
+                                        : "badge-estado badge-usuario";
+                                    string rolMostrado = rolNombre == "ADMINISTRADOR" ? "Administrador" :
+                                                         rolNombre == "USUARIO" ? "Usuario" :
+                                                         rolNombre;
+                                }
+                                <span class="@badgeClass">
+                                    @rolMostrado
                                 </span>
                             </td>
 
@@ -116,10 +128,25 @@
 
                             <td>
                                 <div class="d-flex gap-1 justify-content-center">
+                                    <!-- Recargar Saldo -->
+                                    @if (usuario.SaldoUTNGolCoin == 0)
+                                    {
+                                        <form asp-action="RecargarSaldo" asp-route-id="@usuario.Id" method="post" class="d-inline">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit"
+                                                    class="btn-admin btn-admin-sm"
+                                                    style="background:rgba(255, 193, 7, 0.15);color:#ffc107;"
+                                                    title="Recargar 1 Moneda"
+                                                    onclick="return confirm('¿Recargar 1 UTNGolCoin al usuario @usuario.Nombre?')">
+                                                <i class="bi bi-coin"></i> +1
+                                            </button>
+                                        </form>
+                                    }
+
                                     <!-- Editar -->
                                     <a asp-action="Edit" asp-route-id="@usuario.Id"
-                                       class="btn-admin btn-admin-secondary btn-admin-sm"
-                                       title="Editar usuario">
+                                           class="btn-admin btn-admin-secondary btn-admin-sm"
+                                           title="Editar usuario">
                                         <i class="bi bi-pencil"></i>
                                     </a>
 
@@ -130,7 +157,7 @@
                                                 class="btn-admin btn-admin-sm"
                                                 style="background:rgba(220,53,69,0.15);color:#dc3545;"
                                                 title="Eliminar usuario"
-                                                onclick="confirmarEliminar(event, '@usuario.Nombre')">
+                                                onclick="return confirm('¿Eliminar el usuario @usuario.Nombre?')">
                                             <i class="bi bi-trash3"></i>
                                         </button>
                                     </form>
@@ -149,3 +176,26 @@
         <div class="mt-2">No se encontraron usuarios con ese criterio.</div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // 🔥 BÚSQUEDA EN TIEMPO REAL POR NOMBRE O EMAIL
+        document.getElementById('busquedaUsuarios')?.addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#tablaUsuarios tbody tr');
+            let visible = 0;
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                const match = text.includes(filter);
+                row.style.display = match ? '' : 'none';
+                if (match) visible++;
+            });
+
+            const noResults = document.getElementById('sinResultados');
+            if (noResults) {
+                noResults.style.display = visible === 0 ? 'block' : 'none';
+            }
+        });
+    </script>
+}

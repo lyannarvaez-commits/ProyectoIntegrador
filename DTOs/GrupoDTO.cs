@@ -11,6 +11,9 @@ namespace FrontendAdministrativo.DTOs
     {
         public int Id { get; set; }
 
+        /// <summary>Código del grupo (ej: "A", "B", "C")</summary>
+        public string Codigo { get; set; } = string.Empty;
+
         public string Nombre { get; set; } = string.Empty; // "Grupo A", "Grupo B"...
 
         public List<SeleccionDTO> Selecciones { get; set; } = new();

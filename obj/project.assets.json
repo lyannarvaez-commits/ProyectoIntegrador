@@ -171,11 +171,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LJSN\\source\\repos\\ProyectoIntegrador\\ProyectoIntegrador_GolMundial\\FrontendAdministrativo\\FrontendAdministrativo.csproj",
+      "projectUniqueName": "C:\\Users\\LJSN\\Desktop\\FrontendAdministrativo - copia - copia\\FrontendAdministrativo.csproj",
       "projectName": "FrontendAdministrativo",
-      "projectPath": "C:\\Users\\LJSN\\source\\repos\\ProyectoIntegrador\\ProyectoIntegrador_GolMundial\\FrontendAdministrativo\\FrontendAdministrativo.csproj",
+      "projectPath": "C:\\Users\\LJSN\\Desktop\\FrontendAdministrativo - copia - copia\\FrontendAdministrativo.csproj",
       "packagesPath": "C:\\Users\\LJSN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LJSN\\source\\repos\\ProyectoIntegrador\\ProyectoIntegrador_GolMundial\\FrontendAdministrativo\\obj\\",
+      "outputPath": "C:\\Users\\LJSN\\Desktop\\FrontendAdministrativo - copia - copia\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -659,5 +659,13 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error al obtener los datos de vulnerabilidad del paquete: No se puede cargar el índice de servicio para el origen https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

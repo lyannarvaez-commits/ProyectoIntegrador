@@ -2,11 +2,11 @@
 @{
     ViewData["Title"] = "Partidos";
     string filtroEstado = ViewBag.FiltroEstado ?? "";
-    string filtroFase   = ViewBag.FiltroFase ?? "";
+    string filtroFase = ViewBag.FiltroFase ?? "";
+    var partidos = Model ?? new List<FrontendAdministrativo.DTOs.PartidoDTO>();
 }
 
 <!-- ══ PARTIDOS INDEX ═══════════════════════════════════════ -->
-
 <!-- Encabezado -->
 <div class="page-header">
     <div>
@@ -35,18 +35,28 @@
         <select name="filtroEstado" class="form-control-admin" style="max-width:160px;"
                 onchange="this.form.submit()">
             <option value="" selected="@(string.IsNullOrEmpty(filtroEstado))">Todos los estados</option>
-            <option value="Pendiente"  selected="@(filtroEstado == "Pendiente")">⏳ Pendiente</option>
-            <option value="EnCurso"    selected="@(filtroEstado == "EnCurso")">🔴 En curso</option>
-            <option value="Finalizado" selected="@(filtroEstado == "Finalizado")">✅ Finalizado</option>
+            <option value="PROGRAMADO" selected="@(filtroEstado == "PROGRAMADO")">⏳ Programado</option>
+            <option value="EnCurso" selected="@(filtroEstado == "EnCurso")">🔴 En curso</option>
+            <option value="FINALIZADO" selected="@(filtroEstado == "FINALIZADO")">✅ Finalizado</option>
         </select>
 
         <!-- Filtro por fase -->
         <select name="filtroFase" class="form-control-admin" style="max-width:180px;"
                 onchange="this.form.submit()">
             <option value="" selected="@(string.IsNullOrEmpty(filtroFase))">Todas las fases</option>
-            @foreach (var fase in (List<string>)ViewBag.Fases)
+            @if (ViewBag.Fases != null)
             {
-                <option value="@fase" selected="@(filtroFase == fase)">@fase</option>
+                foreach (var fase in ViewBag.Fases)
+                {
+                    if (filtroFase == fase.Value)
+                    {
+                        <option value="@fase.Value" selected>@fase.Text</option>
+                    }
+                    else
+                    {
+                        <option value="@fase.Value">@fase.Text</option>
+                    }
+                }
             }
         </select>
 
@@ -58,7 +68,7 @@
         }
 
         <span class="ms-auto" style="font-size:12px;color:var(--text-muted);">
-            @Model.Count resultado(s)
+            @partidos.Count resultado(s)
         </span>
     </div>
 </form>
@@ -81,7 +91,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if (!Model.Any())
+                @if (!partidos.Any())
                 {
                     <tr>
                         <td colspan="9" class="text-center py-5" style="color:var(--text-muted);">
@@ -95,17 +105,18 @@
                 }
                 else
                 {
-                    @foreach (var partido in Model)
+                    int i = 1;
+                    @foreach (var partido in partidos)
                     {
                         <tr>
-                            <td style="color:var(--text-muted);font-size:12px;">#@partido.Id</td>
+                            <td style="color:var(--text-muted);font-size:12px;">#@i</td>
 
                             <td>
-                                <span style="font-weight:600;">@partido.SeleccionLocal</span>
+                                <span style="font-weight:600;">@(partido.SeleccionLocal ?? "—")</span>
                             </td>
 
                             <td>
-                                <span style="font-weight:600;">@partido.SeleccionVisitante</span>
+                                <span style="font-weight:600;">@(partido.SeleccionVisitante ?? "—")</span>
                             </td>
 
                             <td>
@@ -123,7 +134,7 @@
                                 }
                             </td>
 
-                            <td style="font-size:12px;">@partido.Fase</td>
+                            <td style="font-size:12px;">@(partido.Fase ?? "—")</td>
 
                             <td style="font-size:12px;white-space:nowrap;">
                                 <i class="bi bi-calendar3 me-1" style="color:var(--text-muted);"></i>
@@ -131,20 +142,36 @@
                             </td>
 
                             <td style="font-size:12px;">
-                                <span title="@partido.Sede">
-                                    @(partido.Sede.Length > 22 ? partido.Sede.Substring(0, 22) + "…" : partido.Sede)
-                                </span>
+                                @{
+                                    var sede = partido.Sede ?? "—";
+                                    if (sede.Length > 22)
+                                    {
+                                        <span title="@sede">@sede.Substring(0, 22)…</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@sede</span>
+                                    }
+                                }
                             </td>
 
                             <td>
                                 @{
-                                    string badgeClass = partido.Estado switch {
-                                        "Finalizado" => "badge-estado badge-finalizado",
-                                        "EnCurso"    => "badge-estado badge-en-curso",
-                                        _            => "badge-estado badge-pendiente"
+                                    string estado = partido.Estado ?? "PROGRAMADO";
+                                    string badgeClass = estado switch
+                                    {
+                                        "FINALIZADO" => "badge-estado badge-finalizado",
+                                        "EnCurso" => "badge-estado badge-en-curso",
+                                        _ => "badge-estado badge-pendiente"
+                                    };
+                                    string textoMostrado = estado switch
+                                    {
+                                        "FINALIZADO" => "Finalizado",
+                                        "EnCurso" => "En Curso",
+                                        _ => "Programado"
                                     };
                                 }
-                                <span class="@badgeClass">@partido.Estado</span>
+                                <span class="@badgeClass">@textoMostrado</span>
                             </td>
 
                             <td>
@@ -152,44 +179,75 @@
 
                                     <!-- Ver detalles -->
                                     <a asp-action="Details" asp-route-id="@partido.Id"
-                                       class="btn-admin btn-admin-secondary btn-admin-sm"
-                                       title="Ver detalle">
+                                           class="btn-admin btn-admin-secondary btn-admin-sm"
+                                           title="Ver detalle">
                                         <i class="bi bi-eye"></i>
                                     </a>
 
-                                    <!-- Editar -->
-                                    <a asp-action="Edit" asp-route-id="@partido.Id"
-                                       class="btn-admin btn-admin-secondary btn-admin-sm"
-                                       title="Editar">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
+                                    <!-- Editar - SOLO si NO está finalizado -->
+                                    @if (estado != "FINALIZADO")
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@partido.Id"
+                                               class="btn-admin btn-admin-secondary btn-admin-sm"
+                                               title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn-admin btn-admin-sm"
+                                              style="background:rgba(108,117,125,0.15);color:#6c757d;cursor:not-allowed;"
+                                              title="Partido ya finalizado">
+                                            <i class="bi bi-pencil"></i>
+                                        </span>
+                                    }
 
-                                    <!-- Registrar resultado -->
-                                    @if (partido.Estado != "Finalizado")
+                                    <!-- Registrar resultado - SOLO si NO está finalizado -->
+                                    @if (estado != "FINALIZADO")
                                     {
                                         <a asp-action="RegistrarResultado" asp-route-id="@partido.Id"
-                                           class="btn-admin btn-admin-sm"
-                                           style="background:rgba(40,167,69,0.15);color:#28a745;"
-                                           title="Registrar resultado">
+                                               class="btn-admin btn-admin-sm"
+                                               style="background:rgba(40,167,69,0.15);color:#28a745;"
+                                               title="Registrar resultado">
                                             <i class="bi bi-trophy"></i>
                                         </a>
                                     }
+                                    else
+                                    {
+                                        <span class="btn-admin btn-admin-sm"
+                                              style="background:rgba(108,117,125,0.15);color:#6c757d;cursor:not-allowed;"
+                                              title="Partido ya finalizado">
+                                            <i class="bi bi-trophy"></i>
+                                        </span>
+                                    }
 
-                                    <!-- Eliminar -->
-                                    <form asp-action="Delete" asp-route-id="@partido.Id" method="post" class="d-inline">
-                                        @Html.AntiForgeryToken()
-                                        <button type="submit"
-                                                class="btn-admin btn-admin-sm"
-                                                style="background:rgba(220,53,69,0.15);color:#dc3545;"
-                                                title="Eliminar"
-                                                onclick="confirmarEliminar(event, '@partido.SeleccionLocal vs @partido.SeleccionVisitante')">
+                                    <!-- Eliminar - SOLO si NO está finalizado -->
+                                    @if (estado != "FINALIZADO")
+                                    {
+                                        <form asp-action="Delete" asp-route-id="@partido.Id" method="post" class="d-inline">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit"
+                                                    class="btn-admin btn-admin-sm"
+                                                    style="background:rgba(220,53,69,0.15);color:#dc3545;"
+                                                    title="Eliminar"
+                                                    onclick="return confirm('¿Eliminar el partido @(partido.SeleccionLocal ?? "") vs @(partido.SeleccionVisitante ?? "")?')">
+                                                <i class="bi bi-trash3"></i>
+                                            </button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn-admin btn-admin-sm"
+                                              style="background:rgba(108,117,125,0.15);color:#6c757d;cursor:not-allowed;"
+                                              title="No se puede eliminar un partido finalizado">
                                             <i class="bi bi-trash3"></i>
-                                        </button>
-                                    </form>
+                                        </span>
+                                    }
 
                                 </div>
                             </td>
                         </tr>
+                        i++;
                     }
                 }
             </tbody>
@@ -202,3 +260,26 @@
         <div class="mt-2">No se encontraron partidos con ese criterio.</div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Filtro de búsqueda en tabla
+        document.getElementById('busquedaTabla')?.addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#tablaPartidos tbody tr');
+            let visible = 0;
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                const match = text.includes(filter);
+                row.style.display = match ? '' : 'none';
+                if (match) visible++;
+            });
+
+            const noResults = document.getElementById('sinResultados');
+            if (noResults) {
+                noResults.style.display = visible === 0 ? 'block' : 'none';
+            }
+        });
+    </script>
+}

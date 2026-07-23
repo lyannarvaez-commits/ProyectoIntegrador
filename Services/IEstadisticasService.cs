@@ -42,6 +42,11 @@ namespace FrontendAdministrativo.Services
         /// <summary>Obtiene los grupos del torneo con sus selecciones.</summary>
         Task<List<GrupoDTO>> GetGruposAsync();
 
+        // ── Sedes ─────────────────────────────────────────────
+
+        /// <summary>Obtiene la lista de sedes del torneo.</summary>
+        Task<List<SedeDTO>> GetSedesAsync();
+
         // ── Usuarios ──────────────────────────────────────────
 
         /// <summary>Obtiene la lista de usuarios del sistema.</summary>

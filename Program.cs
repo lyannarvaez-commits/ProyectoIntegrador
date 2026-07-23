@@ -11,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson(); // Soporte para Newtonsoft.Json en los controllers
 
+// ── HttpClient Factory (para peticiones HTTP) ─────────────────
+builder.Services.AddHttpClient(); //
+
 // ── HttpClient para el Servicio de Estadísticas ───────────────
 builder.Services.AddHttpClient<IEstadisticasService, EstadisticasService>(client =>
 {
@@ -20,6 +23,17 @@ builder.Services.AddHttpClient<IEstadisticasService, EstadisticasService>(client
     client.BaseAddress = new Uri(baseUrl);
     client.DefaultRequestHeaders.Add("Accept", "application/json");
     client.Timeout = TimeSpan.FromSeconds(30);
+});
+
+// ── HttpClient para la API de Billeteras (Gol Mundial) ─────────
+builder.Services.AddHttpClient<IBilleteraService, BilleteraService>(client =>
+{
+    var baseUrl = builder.Configuration["ApiSettings:BaseUrl"]
+                  ?? "http://192.168.0.15:8080/utngolcoin-backend/api";
+    if (!baseUrl.EndsWith("/")) baseUrl += "/";
+    client.BaseAddress = new Uri(baseUrl);
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+    client.Timeout = TimeSpan.FromSeconds(15);
 });
 
 // ── Sesión para manejo de autenticación simple ─────────────────
@@ -73,6 +87,6 @@ app.UseAuthorization();
 // ── Ruta por defecto → Dashboard ─────────────────────────────
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+    pattern: "{controller=Auth}/{action=Login}/{id?}");
 
 app.Run();

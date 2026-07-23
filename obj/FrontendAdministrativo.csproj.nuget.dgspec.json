@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LJSN\\source\\repos\\ProyectoIntegrador\\ProyectoIntegrador_GolMundial\\FrontendAdministrativo\\FrontendAdministrativo.csproj": {}
+    "C:\\Users\\LJSN\\Desktop\\FrontendAdministrativo - copia - copia\\FrontendAdministrativo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LJSN\\source\\repos\\ProyectoIntegrador\\ProyectoIntegrador_GolMundial\\FrontendAdministrativo\\FrontendAdministrativo.csproj": {
+    "C:\\Users\\LJSN\\Desktop\\FrontendAdministrativo - copia - copia\\FrontendAdministrativo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LJSN\\source\\repos\\ProyectoIntegrador\\ProyectoIntegrador_GolMundial\\FrontendAdministrativo\\FrontendAdministrativo.csproj",
+        "projectUniqueName": "C:\\Users\\LJSN\\Desktop\\FrontendAdministrativo - copia - copia\\FrontendAdministrativo.csproj",
         "projectName": "FrontendAdministrativo",
-        "projectPath": "C:\\Users\\LJSN\\source\\repos\\ProyectoIntegrador\\ProyectoIntegrador_GolMundial\\FrontendAdministrativo\\FrontendAdministrativo.csproj",
+        "projectPath": "C:\\Users\\LJSN\\Desktop\\FrontendAdministrativo - copia - copia\\FrontendAdministrativo.csproj",
         "packagesPath": "C:\\Users\\LJSN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LJSN\\source\\repos\\ProyectoIntegrador\\ProyectoIntegrador_GolMundial\\FrontendAdministrativo\\obj\\",
+        "outputPath": "C:\\Users\\LJSN\\Desktop\\FrontendAdministrativo - copia - copia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -30,7 +30,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -49,7 +48,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
