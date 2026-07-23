@@ -63,55 +63,14 @@ namespace FrontendAdministrativo.Services
         {
             try
             {
-                // Obtenemos la billetera para saber el saldo actual y el ID
-                var billetera = await GetBilleteraByUsuarioAsync(usuarioId);
-                
-                if (billetera == null)
+                var emptyContent = new StringContent("{}", Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync($"billeteras/usuario/{usuarioId}/recargar", emptyContent);
+                if (response.IsSuccessStatusCode)
                 {
-                    // Si no tiene billetera, intentamos crearla
-                    billetera = new BilleteraDTO { UsuarioId = usuarioId, Saldo = cantidad };
-                    var jsonCreate = JsonConvert.SerializeObject(billetera);
-                    var contentCreate = new StringContent(jsonCreate, Encoding.UTF8, "application/json");
-                    var resCreate = await _httpClient.PostAsync("billeteras", contentCreate);
-                    return resCreate.IsSuccessStatusCode;
+                    _logger.LogInformation($"Recarga exitosa para usuario {usuarioId}");
+                    return true;
                 }
-
-                billetera.Saldo += cantidad;
-                var json = JsonConvert.SerializeObject(billetera);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                // Intentar TODAS las rutas y verbos posibles para máxima compatibilidad
-                var attempts = new List<Func<Task<HttpResponseMessage>>>
-                {
-                    () => _httpClient.PutAsync($"billeteras/{billetera.Id}", content),
-                    () => _httpClient.PutAsync($"billeteras/usuario/{usuarioId}", content),
-                    () => _httpClient.PutAsync("billeteras", content),
-
-                    () => _httpClient.PostAsync($"billeteras/{billetera.Id}", content),
-                    () => _httpClient.PostAsync($"billeteras/usuario/{usuarioId}", content),
-                    () => _httpClient.PostAsync("billeteras", content),
-                    
-                    () => _httpClient.PatchAsync($"billeteras/{billetera.Id}", content),
-                    
-                    () => _httpClient.PutAsync($"billeteras/{billetera.Id}/saldo", content),
-                    () => _httpClient.PostAsync($"billeteras/recargar/{billetera.Id}", content)
-                };
-
-                foreach (var attempt in attempts)
-                {
-                    try
-                    {
-                        var response = await attempt();
-                        if (response.IsSuccessStatusCode)
-                        {
-                            _logger.LogInformation($"Recarga exitosa para usuario {usuarioId}");
-                            return true;
-                        }
-                    }
-                    catch { /* Ignorar errores de conexión por intento */ }
-                }
-
-                _logger.LogWarning($"Todas las rutas fallaron al recargar saldo para el usuario {usuarioId}.");
+                _logger.LogWarning($"Error al recargar saldo para el usuario {usuarioId}. Status: {response.StatusCode}");
                 return false;
             }
             catch (Exception ex)
